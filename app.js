@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LLIBRE DE LECTURA D'EMMA - VIDEOJOC COMPACTE SENSE SCROLL (FIT-TO-VIEWPORT)
+   LLIBRE DE LECTURA D me'N - JOC DE LECTURA SENSE AUDIO AUTOMÀTIC
    ========================================================================== */
 
 const unitsData = [
@@ -403,8 +403,14 @@ function renderReadingGameStage() {
             ${renderProgressTrackHTML()}
 
             <div class="reading-game-play-area">
-                <p class="reading-instruction">LLEGEIX LA PARAULA I PREM LA IMATGE CORRECTA:</p>
-                <div class="reading-target-word" id="readingTargetWord" onclick="speakText(this.innerText)">PO-MA</div>
+                <p class="reading-instruction">👀 LLEGEIX LA PARAULA I PREM LA IMATGE CORRECTA:</p>
+                
+                <div class="word-read-wrapper">
+                    <div class="reading-target-word" id="readingTargetWord">PO-MA</div>
+                    <button class="hint-audio-btn" title="Escolta si et quedes atascada" onclick="speakText(currentWordObj.text || currentWordObj.word)">
+                        🔊 PISTA
+                    </button>
+                </div>
 
                 <div class="image-options-grid" id="imageOptionsGrid"></div>
             </div>
@@ -455,7 +461,7 @@ function loadNextReadingTarget() {
         </div>
     `).join('');
 
-    speakText(currentWordObj.text || currentWordObj.word);
+    // S'HA ELIMINAT L'ÀUDIO AUTOMÀTIC PER A QUE EMMA HAGE DE LLEGIR ELLA MATEIXA LA PARAULA!
 }
 
 window.handleReadingChoice = function(chosenWord, element) {
@@ -470,6 +476,7 @@ window.handleReadingChoice = function(chosenWord, element) {
         localStorage.setItem('emma_game_score', gameScore);
         localStorage.setItem('emma_words_completed', totalWordsCompleted);
 
+        // Quan encerta, SÍ que es llegeix la paraula per a felicitar-la!
         speakText(`Molt bé! És ${currentWordObj.word}!`);
 
         if (totalWordsCompleted > 0 && totalWordsCompleted % 10 === 0) {
@@ -483,7 +490,7 @@ window.handleReadingChoice = function(chosenWord, element) {
             setTimeout(() => {
                 renderReadingGameStage();
                 loadNextReadingTarget();
-            }, 1200);
+            }, 1400);
         }
     } else {
         element.classList.add('wrong');

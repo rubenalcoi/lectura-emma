@@ -48,7 +48,6 @@ body {
     flex-direction: column;
 }
 
-/* Quan s'està jugant a un joc, s'elimina el scroll de la finestra */
 body.game-mode-active {
     height: 100vh;
     overflow: hidden;
@@ -164,9 +163,7 @@ body.game-mode-active {
     overflow: hidden;
 }
 
-/* ==========================================================================
-   ESTIL DE VIDEOJOC ARCADE (FIT-TO-VIEWPORT SENSE SCROLL)
-   ========================================================================== */
+/* ARCADE GAME WRAPPER */
 .arcade-game-wrapper {
     background: #FFFFFF;
     width: 100%;
@@ -311,6 +308,12 @@ body.game-mode-active {
     text-transform: uppercase;
 }
 
+.word-read-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
 .reading-target-word {
     font-family: var(--font-reading);
     font-size: 3.2rem;
@@ -321,12 +324,25 @@ body.game-mode-active {
     border-radius: var(--radius-md);
     border: 4px dashed var(--primary);
     box-shadow: var(--shadow-sm);
-    cursor: pointer;
     letter-spacing: 3px;
-    transition: transform 0.2s ease;
 }
 
-.reading-target-word:hover { transform: scale(1.04); }
+.hint-audio-btn {
+    font-family: var(--font-reading);
+    font-size: 0.95rem;
+    font-weight: bold;
+    background: #EBF5FF;
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+    padding: 0.6rem 1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #CBD5E1;
+    transition: all 0.2s ease;
+}
+
+.hint-audio-btn:hover { background: var(--secondary); color: white; transform: translateY(-2px); }
+.hint-audio-btn:active { transform: translateY(2px); box-shadow: none; }
 
 .image-options-grid {
     display: grid;
