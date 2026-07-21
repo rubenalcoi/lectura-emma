@@ -179,6 +179,28 @@ body {
     color: var(--accent-yellow);
 }
 
+.reset-game-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.3);
+    color: rgba(255,255,255,0.6);
+    border: 2px solid rgba(255,255,255,0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-family: var(--font-game);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.reset-game-btn:hover {
+    color: white;
+    border-color: white;
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.05);
+}
+
 /* =========================================================================
    HUD DEL JOC I ESCENARI ARCADE
    ========================================================================= */

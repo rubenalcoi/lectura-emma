@@ -174,6 +174,21 @@ window.goBackToMenu = function() {
     renderCurrentStage();
 }
 
+window.resetGameData = function() {
+    if (confirm("⚠️ Vols reiniciar tota l'aventura i tornar al Nivell 1?")) {
+        localStorage.removeItem('emma_game_score');
+        localStorage.removeItem('emma_words_completed');
+        localStorage.removeItem('emma_shuffled_words');
+        localStorage.removeItem('emma_shuffle_level');
+        gameScore = 0;
+        totalWordsCompleted = 0;
+        currentLevelNumber = 1;
+        savedLevelForShuffle = 0;
+        currentLevelShuffledWords = [];
+        goBackToMenu();
+    }
+}
+
 function renderCurrentStage() {
     const stageContainer = document.getElementById('mainStage');
     if (!stageContainer) return;
@@ -237,6 +252,8 @@ function renderCoverHTML() {
                 <span>🏆 NIVELL ACTUAL: ${currentLevelNumber}</span>
                 <span>⭐ PUNTS: ${gameScore}</span>
             </div>
+
+            <button class="reset-game-btn" onclick="resetGameData()">🔄 REINICIAR JOC (Nivell 1)</button>
         </div>
     `;
 }
