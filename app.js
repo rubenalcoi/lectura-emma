@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LLIBRE DE LECTURA D'EMMA - ACCESOS DIRECTES A LA PORTADA I CAMÍ ANIMAT
+   LLIBRE DE LECTURA D'EMMA - VIDEOJOC COMPACTE SENSE SCROLL (FIT-TO-VIEWPORT)
    ========================================================================== */
 
 const unitsData = [
@@ -269,11 +269,11 @@ function renderUnitTabs() {
         <button class="unit-tab tab-game ${isGameMode ? 'active' : ''}" onclick="startTypingGame()">
             ⌨️ JOC D'ESCRIURE (NIV ${currentLevelNumber})
         </button>
-        <div class="level-group-label">🟢 N1 (Úniques):</div>
+        <div class="level-group-label">🟢 N1:</div>
     `;
     n1.forEach(u => { html += `<button class="unit-tab tab-n1 ${currentUnitId === u.id && !isAllUnitsMode && !isGameMode && !isReadingGameMode ? 'active' : ''}" onclick="switchUnit('${u.id}')">${u.letter}</button>`; });
 
-    html += `<div class="level-group-label">🔵 N2 (Combinades):</div>`;
+    html += `<div class="level-group-label">🔵 N2:</div>`;
     n2.forEach(u => { html += `<button class="unit-tab tab-n2 ${currentUnitId === u.id && !isAllUnitsMode && !isGameMode && !isReadingGameMode ? 'active' : ''}" onclick="switchUnit('${u.id}')">${u.letter}</button>`; });
 
     html += `
@@ -290,6 +290,7 @@ window.switchUnit = function(unitId) {
     isAllUnitsMode = false;
     isGameMode = false;
     isReadingGameMode = false;
+    document.body.classList.remove('game-mode-active');
     renderUnitTabs();
     renderCurrentStage();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -299,6 +300,7 @@ window.showAllUnitsForPrint = function() {
     isAllUnitsMode = true;
     isGameMode = false;
     isReadingGameMode = false;
+    document.body.classList.remove('game-mode-active');
     renderUnitTabs();
     renderCurrentStage();
 };
@@ -307,6 +309,7 @@ window.startTypingGame = function() {
     isGameMode = true;
     isReadingGameMode = false;
     isAllUnitsMode = false;
+    document.body.classList.add('game-mode-active');
     renderUnitTabs();
     renderTypingGameStage();
     loadNextGameTarget();
@@ -316,6 +319,7 @@ window.startReadingGame = function() {
     isReadingGameMode = true;
     isGameMode = false;
     isAllUnitsMode = false;
+    document.body.classList.add('game-mode-active');
     renderUnitTabs();
     renderReadingGameStage();
     loadNextReadingTarget();
@@ -362,12 +366,12 @@ function renderProgressTrackHTML() {
     return `
         <div class="progress-track-container">
             <div class="track-info">
-                <span>🏃 CAMÍ CAP AL TROFEU: <strong>${stepCount}/10 passos</strong></span>
+                <span>🏃 CAMÍ D'EMMA: <strong>${stepCount}/10 passos</strong></span>
                 <span>🏆 NIVELL ${currentLevelNumber}</span>
             </div>
             <div class="track-bar-bg">
                 <div class="track-bar-fill" style="width: ${percentage}%"></div>
-                <div class="track-mascot" style="left: calc(${percentage}% - 25px)">🦄</div>
+                <div class="track-mascot" style="left: calc(${percentage}% - 20px)">🦄</div>
                 <div class="track-finish-flag">🏆</div>
             </div>
         </div>
@@ -382,16 +386,16 @@ function renderReadingGameStage() {
     if (!stageContainer) return;
 
     stageContainer.innerHTML = `
-        <div class="game-container">
+        <div class="arcade-game-wrapper">
             <div class="game-header-bar">
                 <div class="game-title-group">
-                    <ion-icon name="book" style="font-size: 2rem; color: var(--secondary);"></ion-icon>
+                    <ion-icon name="book" style="font-size: 1.8rem; color: var(--accent-orange);"></ion-icon>
                     <span>JOC DE LECTURA D'EMMA 📖</span>
                 </div>
                 
                 <div class="game-stats-group">
-                    <div class="score-badge badge-lvl">🏆 NIVELL <strong id="gameLvlNum">${currentLevelNumber}</strong></div>
-                    <div class="score-badge badge-words">🎯 ${totalWordsCompleted % 10}/10 Paraules</div>
+                    <div class="score-badge badge-lvl">🏆 NIV <strong>${currentLevelNumber}</strong></div>
+                    <div class="score-badge badge-words">🎯 ${totalWordsCompleted % 10}/10</div>
                     <div class="score-badge badge-pts">⭐ ${gameScore} pts</div>
                 </div>
             </div>
@@ -399,7 +403,7 @@ function renderReadingGameStage() {
             ${renderProgressTrackHTML()}
 
             <div class="reading-game-play-area">
-                <p class="reading-instruction">LLEGEIX LA PARAULA I SELECCIONA LA IMATGE CORRECTA:</p>
+                <p class="reading-instruction">LLEGEIX LA PARAULA I PREM LA IMATGE CORRECTA:</p>
                 <div class="reading-target-word" id="readingTargetWord" onclick="speakText(this.innerText)">PO-MA</div>
 
                 <div class="image-options-grid" id="imageOptionsGrid"></div>
@@ -479,7 +483,7 @@ window.handleReadingChoice = function(chosenWord, element) {
             setTimeout(() => {
                 renderReadingGameStage();
                 loadNextReadingTarget();
-            }, 1400);
+            }, 1200);
         }
     } else {
         element.classList.add('wrong');
@@ -495,21 +499,21 @@ function renderTypingGameStage() {
     if (!stageContainer) return;
 
     stageContainer.innerHTML = `
-        <div class="game-container">
+        <div class="arcade-game-wrapper">
             <div class="game-header-bar">
                 <div class="game-title-group">
-                    <ion-icon name="trophy" style="font-size: 2rem; color: var(--accent-yellow);"></ion-icon>
-                    <span>JOC D'ESCRIURE D'EMMA</span>
+                    <ion-icon name="trophy" style="font-size: 1.8rem; color: var(--accent-yellow);"></ion-icon>
+                    <span>JOC D'ESCRIURE D'EMMA 🎹</span>
                 </div>
                 
                 <div class="game-stats-group">
-                    <div class="score-badge badge-lvl">🏆 NIVELL <strong id="gameLvlNum">${currentLevelNumber}</strong></div>
-                    <div class="score-badge badge-words">🎯 ${totalWordsCompleted % 10}/10 Paraules</div>
+                    <div class="score-badge badge-lvl">🏆 NIV <strong>${currentLevelNumber}</strong></div>
+                    <div class="score-badge badge-words">🎯 ${totalWordsCompleted % 10}/10</div>
                     <div class="score-badge badge-pts">⭐ ${gameScore} pts</div>
                 </div>
 
                 <div class="diff-selector">
-                    <button class="diff-btn ${currentDifficulty === 'facil' ? 'active' : ''}" onclick="setDifficulty('facil')">🌱 Fàcil (4 lletres)</button>
+                    <button class="diff-btn ${currentDifficulty === 'facil' ? 'active' : ''}" onclick="setDifficulty('facil')">🌱 Fàcil</button>
                     <button class="diff-btn ${currentDifficulty === 'mitja' ? 'active' : ''}" onclick="setDifficulty('mitja')">⭐ Mitjà</button>
                     <button class="diff-btn ${currentDifficulty === 'avancat' ? 'active' : ''}" onclick="setDifficulty('avancat')">🚀 Avançat</button>
                 </div>
@@ -518,11 +522,12 @@ function renderTypingGameStage() {
             ${renderProgressTrackHTML()}
 
             <div class="game-play-area" id="gamePlayArea">
-                <div class="target-visual" id="targetIcon">🍎</div>
-                <div class="target-text-display" id="targetWordText">PO-MA</div>
+                <div class="target-visual-compact">
+                    <span id="targetIcon">🍎</span>
+                    <span class="target-text-display" id="targetWordText">PO-MA</span>
+                </div>
                 
                 <div class="typing-boxes" id="typingBoxes"></div>
-                <div class="hint-msg" id="hintMsg">Prem les lletres al teu teclat o a la pantalla!</div>
             </div>
 
             <div class="virtual-keyboard" id="virtualKeyboard">
@@ -651,7 +656,7 @@ function processTypedChar(char) {
                 gameTargetIndex++;
                 setTimeout(() => {
                     renderTypingGameStage();
-                }, 1400);
+                }, 1200);
             }
         } else {
             const nextBox = document.getElementById(`box-${typedChars.length}`);

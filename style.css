@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LLIBRE DE LECTURA D'EMMA - ACCESOS DIRECTES A LA PORTADA I CAMÍ ANIMAT
+   LLIBRE DE LECTURA D'EMMA - VIDEOJOC COMPACTE SENSE SCROLL (FIT-TO-VIEWPORT)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
@@ -48,9 +48,15 @@ body {
     flex-direction: column;
 }
 
+/* Quan s'està jugant a un joc, s'elimina el scroll de la finestra */
+body.game-mode-active {
+    height: 100vh;
+    overflow: hidden;
+}
+
 .top-navbar {
     background: white;
-    padding: 1rem 2rem;
+    padding: 0.6rem 1.5rem;
     box-shadow: var(--shadow-sm);
     display: flex;
     justify-content: space-between;
@@ -64,27 +70,27 @@ body {
 .brand-title {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.6rem;
     font-family: var(--font-reading);
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     color: var(--primary);
 }
 
-.brand-title ion-icon { font-size: 2.2rem; color: var(--accent-yellow); }
+.brand-title ion-icon { font-size: 1.8rem; color: var(--accent-yellow); }
 
-.nav-controls { display: flex; gap: 1rem; align-items: center; }
+.nav-controls { display: flex; gap: 0.8rem; align-items: center; }
 
 .btn {
     font-family: var(--font-ui);
     font-weight: 700;
-    font-size: 1rem;
-    padding: 0.7rem 1.4rem;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.1rem;
     border-radius: var(--radius-sm);
     border: none;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.4rem;
     transition: all 0.2s ease;
     box-shadow: var(--shadow-sm);
 }
@@ -95,11 +101,11 @@ body {
 .btn-secondary:hover { background-color: #2692E6; transform: translateY(-2px); }
 .btn-game { background-color: var(--accent-purple); color: white; }
 .btn-game:hover { background-color: #8B46D2; transform: translateY(-2px); }
-.btn-lg { font-size: 1.3rem; padding: 0.9rem 2.2rem; border-radius: 50px; }
+.btn-lg { font-size: 1.2rem; padding: 0.8rem 2rem; border-radius: 50px; }
 
 .unit-selector-bar {
     background: white;
-    padding: 0.75rem 2rem;
+    padding: 0.5rem 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -110,18 +116,17 @@ body {
 
 .level-group-label {
     font-family: var(--font-reading);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: var(--text-muted);
-    padding: 0 0.4rem;
+    padding: 0 0.3rem;
     white-space: nowrap;
-    margin-left: 0.4rem;
 }
 
 .unit-tab {
     font-family: var(--font-reading);
-    font-size: 0.95rem;
-    padding: 0.4rem 0.95rem;
+    font-size: 0.9rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 50px;
     background: #F0F4FC;
     color: var(--text-dark);
@@ -152,36 +157,109 @@ body {
 
 .main-stage {
     flex: 1;
-    padding: 2rem;
+    padding: 1rem 1.5rem;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
+    overflow: hidden;
 }
 
 /* ==========================================================================
-   CAMÍ D'EMMA - BARRA DE PROGRESSIÓ AMB MASCOTA ANIMADA
+   ESTIL DE VIDEOJOC ARCADE (FIT-TO-VIEWPORT SENSE SCROLL)
    ========================================================================== */
+.arcade-game-wrapper {
+    background: #FFFFFF;
+    width: 100%;
+    max-width: 950px;
+    height: calc(100vh - 120px);
+    max-height: calc(100vh - 120px);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.15);
+    padding: 1rem 1.5rem;
+    border: 4px solid var(--accent-purple);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.game-header-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #FFFDF0;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    border: 2px solid #FDE68A;
+}
+
+.game-title-group {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-reading);
+    font-size: 1.25rem;
+    color: var(--primary);
+}
+
+.game-stats-group { display: flex; align-items: center; gap: 0.6rem; }
+
+.score-badge {
+    font-family: var(--font-reading);
+    font-size: 0.95rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.badge-lvl { background: #E0E7FF; color: #3730A3; border: 2px solid #6366F1; }
+.badge-words { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
+.badge-pts { background: #D1FAE5; color: #065F46; border: 2px solid #10B981; }
+
+.diff-selector { display: flex; gap: 0.3rem; }
+
+.diff-btn {
+    font-family: var(--font-reading);
+    font-size: 0.85rem;
+    padding: 0.25rem 0.65rem;
+    border-radius: 50px;
+    background: white;
+    border: 2px solid #CBD5E1;
+    color: var(--text-dark);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.diff-btn.active {
+    background: var(--secondary);
+    color: white;
+    border-color: var(--secondary);
+}
+
+/* BARRA DEL CAMÍ ANIMAT */
 .progress-track-container {
     width: 100%;
     background: #FFFBEB;
     border: 2px solid #FDE68A;
     border-radius: var(--radius-md);
-    padding: 0.8rem 1.2rem;
-    margin-bottom: 0.5rem;
+    padding: 0.4rem 0.8rem;
 }
 
 .track-info {
     display: flex;
     justify-content: space-between;
     font-family: var(--font-reading);
-    font-size: 1.05rem;
+    font-size: 0.9rem;
     color: #92400E;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.2rem;
 }
 
 .track-bar-bg {
     position: relative;
-    height: 26px;
+    height: 18px;
     background: #E2E8F0;
     border-radius: 50px;
     overflow: visible;
@@ -197,27 +275,206 @@ body {
 
 .track-mascot {
     position: absolute;
-    top: -22px;
-    font-size: 2.3rem;
+    top: -16px;
+    font-size: 1.8rem;
     transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     animation: bounceMascot 1s infinite alternate;
 }
 
 @keyframes bounceMascot {
     from { transform: translateY(0); }
-    to { transform: translateY(-6px); }
+    to { transform: translateY(-4px); }
 }
 
 .track-finish-flag {
     position: absolute;
-    right: 5px;
-    top: -10px;
-    font-size: 1.8rem;
+    right: 4px;
+    top: -8px;
+    font-size: 1.3rem;
 }
 
-/* ==========================================================================
-   DRECERES DE JOCS A LA PORTADA
-   ========================================================================== */
+/* JOC DE LECTURA */
+.reading-game-play-area {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    flex: 1;
+}
+
+.reading-instruction {
+    font-family: var(--font-reading);
+    font-size: 1rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.reading-target-word {
+    font-family: var(--font-reading);
+    font-size: 3.2rem;
+    font-weight: bold;
+    color: var(--primary);
+    background: #FFF5F5;
+    padding: 0.4rem 2.5rem;
+    border-radius: var(--radius-md);
+    border: 4px dashed var(--primary);
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    letter-spacing: 3px;
+    transition: transform 0.2s ease;
+}
+
+.reading-target-word:hover { transform: scale(1.04); }
+
+.image-options-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    width: 100%;
+}
+
+.image-option-card {
+    background: white;
+    border: 4px solid #E2E8F0;
+    border-radius: var(--radius-md);
+    padding: 1rem 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 6px 0 #CBD5E1;
+}
+
+.image-option-card:hover {
+    transform: translateY(-3px);
+    border-color: var(--secondary);
+}
+
+.image-option-card:active {
+    transform: translateY(3px);
+    box-shadow: 0 0 0 transparent;
+}
+
+.image-option-card.correct {
+    border-color: var(--accent-green) !important;
+    background: #E6F9F3 !important;
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(6, 214, 160, 0.5);
+}
+
+.image-option-card.wrong {
+    border-color: var(--primary) !important;
+    background: #FFE8E8 !important;
+    animation: shake 0.4s ease;
+}
+
+.option-icon { font-size: 3.8rem; }
+
+/* JOC D'ESCRIURE EN TECLAT */
+.game-play-area {
+    width: 100%;
+    background: linear-gradient(135deg, #F8FAFC 0%, #EDF2F7 100%);
+    border-radius: var(--radius-md);
+    border: 3px dashed #CBD5E1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    flex: 1;
+}
+
+.target-visual-compact {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 3rem;
+}
+
+.target-text-display {
+    font-family: var(--font-reading);
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    letter-spacing: 4px;
+}
+
+.typing-boxes { display: flex; gap: 0.6rem; margin-top: 0.4rem; }
+
+.char-box {
+    width: 52px;
+    height: 60px;
+    background: white;
+    border: 3px solid #CBD5E1;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-reading);
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    box-shadow: 0 4px 0 #CBD5E1;
+}
+
+.char-box.filled {
+    border-color: var(--accent-green);
+    background: #E6F9F3;
+    color: #007A5E;
+}
+
+.char-box.current-target {
+    border-color: var(--accent-yellow);
+    background: #FFFDF0;
+    animation: blinkBorder 1s infinite alternate;
+}
+
+.virtual-keyboard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    background: #E2E8F0;
+    padding: 0.6rem;
+    border-radius: var(--radius-md);
+}
+
+.keyboard-row { display: flex; justify-content: center; gap: 0.3rem; }
+
+.key-btn {
+    font-family: var(--font-reading);
+    font-size: 1.3rem;
+    font-weight: bold;
+    width: 46px;
+    height: 46px;
+    border-radius: 10px;
+    background: white;
+    color: var(--text-dark);
+    border: none;
+    border-bottom: 4px solid #CBD5E1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    transition: all 0.1s ease;
+}
+
+.key-btn:hover { background: #F8FAFC; transform: translateY(-2px); }
+.key-btn:active, .key-btn.pressed { transform: translateY(2px); border-bottom-width: 1px; background: var(--accent-yellow); }
+
+.key-btn.highlighted {
+    background: var(--accent-yellow);
+    color: var(--text-dark);
+    border-color: #F59E0B;
+    box-shadow: 0 0 10px rgba(245, 158, 11, 0.8);
+    animation: glowKey 0.8s infinite alternate;
+}
+
+/* DRECERES DE JOCS A LA PORTADA */
 .cover-games-shortcuts-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -240,314 +497,18 @@ body {
     transition: all 0.2s ease;
 }
 
-.game-shortcut-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-}
+.game-shortcut-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
 
 .card-reading-shortcut { border-color: var(--accent-orange); background: #FFFDF5; }
 .card-typing-shortcut { border-color: var(--accent-pink); background: #FFF5FB; }
 
 .shortcut-icon { font-size: 3.5rem; }
 
-.shortcut-info h3 {
-    font-family: var(--font-reading);
-    font-size: 1.3rem;
-    color: var(--text-dark);
-}
-
-.shortcut-info p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    font-weight: 600;
-}
+.shortcut-info h3 { font-family: var(--font-reading); font-size: 1.3rem; color: var(--text-dark); }
+.shortcut-info p { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
 
 .btn-shortcut-reading { background: var(--accent-orange); color: white; border: none; font-family: var(--font-reading); border-radius: 50px; font-size: 1.1rem; }
 .btn-shortcut-typing { background: var(--accent-pink); color: white; border: none; font-family: var(--font-reading); border-radius: 50px; font-size: 1.1rem; }
-
-/* JOC DE LECTURA ("ENDEVINA LA IMATGE") */
-.reading-game-play-area {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-    padding: 1rem 0;
-}
-
-.reading-instruction {
-    font-family: var(--font-reading);
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    text-transform: uppercase;
-}
-
-.reading-target-word {
-    font-family: var(--font-reading);
-    font-size: 3.8rem;
-    font-weight: bold;
-    color: var(--primary);
-    background: #FFF5F5;
-    padding: 0.8rem 3rem;
-    border-radius: var(--radius-md);
-    border: 4px dashed var(--primary);
-    box-shadow: var(--shadow-md);
-    cursor: pointer;
-    letter-spacing: 3px;
-    transition: transform 0.2s ease;
-}
-
-.reading-target-word:hover { transform: scale(1.05); }
-
-.image-options-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.2rem;
-    width: 100%;
-    margin-top: 0.5rem;
-}
-
-.image-option-card {
-    background: white;
-    border: 4px solid #E2E8F0;
-    border-radius: var(--radius-md);
-    padding: 1.5rem 1rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: var(--shadow-sm);
-}
-
-.image-option-card:hover {
-    transform: translateY(-5px) scale(1.05);
-    border-color: var(--secondary);
-    box-shadow: var(--shadow-md);
-}
-
-.image-option-card.correct {
-    border-color: var(--accent-green) !important;
-    background: #E6F9F3 !important;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(6, 214, 160, 0.5);
-}
-
-.image-option-card.wrong {
-    border-color: var(--primary) !important;
-    background: #FFE8E8 !important;
-    animation: shake 0.4s ease;
-}
-
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-8px); }
-    75% { transform: translateX(8px); }
-}
-
-.option-icon { font-size: 4.5rem; }
-
-/* JOC D'ESCRIURE EN TECLAT */
-.game-container {
-    background: white;
-    width: 100%;
-    max-width: 900px;
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-lg);
-    padding: 2rem;
-    border: 4px solid #F0F4FC;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.game-header-bar {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #FFFDF0;
-    padding: 1rem 1.5rem;
-    border-radius: var(--radius-md);
-    border: 2px solid #FDE68A;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.game-title-group {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-family: var(--font-reading);
-    font-size: 1.4rem;
-    color: var(--primary);
-}
-
-.game-stats-group { display: flex; align-items: center; gap: 0.8rem; }
-
-.score-badge {
-    font-family: var(--font-reading);
-    font-size: 1.1rem;
-    padding: 0.4rem 0.9rem;
-    border-radius: 50px;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-}
-
-.badge-lvl { background: #E0E7FF; color: #3730A3; border: 2px solid #6366F1; }
-.badge-words { background: #FEF3C7; color: #92400E; border: 2px solid #F59E0B; }
-.badge-pts { background: #D1FAE5; color: #065F46; border: 2px solid #10B981; }
-
-.diff-selector { display: flex; gap: 0.4rem; }
-
-.diff-btn {
-    font-family: var(--font-reading);
-    font-size: 0.95rem;
-    padding: 0.35rem 0.8rem;
-    border-radius: 50px;
-    background: white;
-    border: 2px solid #CBD5E1;
-    color: var(--text-dark);
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.diff-btn.active {
-    background: var(--secondary);
-    color: white;
-    border-color: var(--secondary);
-}
-
-.game-play-area {
-    width: 100%;
-    min-height: 250px;
-    background: linear-gradient(135deg, #F8FAFC 0%, #EDF2F7 100%);
-    border-radius: var(--radius-md);
-    border: 3px dashed #CBD5E1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-    position: relative;
-    overflow: hidden;
-}
-
-.target-visual {
-    font-size: 4.5rem;
-    margin-bottom: 0.5rem;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-}
-
-.target-text-display {
-    font-family: var(--font-reading);
-    font-size: 3.2rem;
-    font-weight: bold;
-    color: var(--text-dark);
-    letter-spacing: 4px;
-    margin-bottom: 1rem;
-}
-
-.typing-boxes { display: flex; gap: 0.8rem; }
-
-.char-box {
-    width: 65px;
-    height: 75px;
-    background: white;
-    border: 3px solid #CBD5E1;
-    border-radius: var(--radius-sm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-reading);
-    font-size: 2.8rem;
-    font-weight: bold;
-    color: var(--text-dark);
-    box-shadow: var(--shadow-sm);
-    transition: all 0.2s ease;
-}
-
-.char-box.filled {
-    border-color: var(--accent-green);
-    background: #E6F9F3;
-    color: #007A5E;
-    transform: scale(1.05);
-}
-
-.char-box.current-target {
-    border-color: var(--accent-yellow);
-    background: #FFFDF0;
-    box-shadow: 0 0 16px rgba(255, 209, 102, 0.6);
-    animation: blinkBorder 1s infinite alternate;
-}
-
-@keyframes blinkBorder {
-    from { border-color: var(--accent-yellow); }
-    to { border-color: var(--primary); }
-}
-
-.hint-msg {
-    font-family: var(--font-reading);
-    font-size: 1.2rem;
-    color: var(--secondary);
-    margin-top: 1rem;
-}
-
-.virtual-keyboard {
-    width: 100%;
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    background: #E2E8F0;
-    padding: 1rem;
-    border-radius: var(--radius-md);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.keyboard-row { display: flex; justify-content: center; gap: 0.4rem; }
-
-.key-btn {
-    font-family: var(--font-reading);
-    font-size: 1.5rem;
-    font-weight: bold;
-    width: 55px;
-    height: 55px;
-    border-radius: 12px;
-    background: white;
-    color: var(--text-dark);
-    border: none;
-    border-bottom: 4px solid #CBD5E1;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    user-select: none;
-    transition: all 0.1s ease;
-}
-
-.key-btn:hover { background: #F8FAFC; transform: translateY(-2px); }
-.key-btn:active, .key-btn.pressed { transform: translateY(2px); border-bottom-width: 1px; background: var(--accent-yellow); }
-
-.key-btn.highlighted {
-    background: var(--accent-yellow);
-    color: var(--text-dark);
-    border-color: #F59E0B;
-    box-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
-    animation: glowKey 0.8s infinite alternate;
-}
-
-@keyframes glowKey {
-    from { transform: scale(1); }
-    to { transform: scale(1.12); }
-}
 
 /* CELEBRACIÓ MODAL */
 .celebration-overlay {
@@ -1028,7 +989,7 @@ body {
 }
 
 @media print {
-    .no-print, .top-navbar, .unit-selector-bar, .audio-toast, button, .game-container, .celebration-overlay {
+    .no-print, .top-navbar, .unit-selector-bar, .audio-toast, button, .game-container, .arcade-game-wrapper, .celebration-overlay {
         display: none !important;
     }
 
