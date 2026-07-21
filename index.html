@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Llibre de Lectura i Joc d'Escriure d'Emma 🌟 - Valencià</title>
+    <meta name="description" content="Llibre de lectura i joc interactiu d'escriure en teclat per a l'iniciació a la lectura i l'escriptura en valencià.">
+    
+    <!-- Google Fonts: Fredoka & Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Ionicons -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    
+    <!-- Full d'Estils Principal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR DE NAVEGACIÓ I IMPRESSIÓ -->
+    <header class="top-navbar no-print">
+        <div class="brand-title">
+            <ion-icon name="book"></ion-icon>
+            <span>EL LLIBRE D'EMMA 🌟</span>
+        </div>
+
+        <div class="nav-controls">
+            <button class="btn btn-game" onclick="startTypingGame()">
+                <ion-icon name="game-controller-outline"></ion-icon> 🎮 Joc d'Escriure
+            </button>
+
+            <button class="btn btn-secondary" onclick="showAllUnitsForPrint()">
+                <ion-icon name="library-outline"></ion-icon> Tot el Llibre
+            </button>
+
+            <button class="btn btn-primary" onclick="printApp()">
+                <ion-icon name="print-outline"></ion-icon> 🖨️ Imprimir / PDF (A4)
+            </button>
+        </div>
+    </header>
+
+    <!-- SELECTOR DE LÀMINES / UNITATS / JOC -->
+    <nav class="unit-selector-bar no-print" id="unitTabs">
+        <!-- Generat dinàmicament des d'app.js -->
+    </nav>
+
+    <!-- CONTAINER PRINCIPAL ON ES MOSTREN LES LÀMINES A4 O EL JOC -->
+    <main class="main-stage" id="mainStage">
+        <!-- El contingut es renderitza des d'app.js -->
+    </main>
+
+    <!-- Carregar la lògica JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
