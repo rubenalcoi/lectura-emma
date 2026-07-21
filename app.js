@@ -388,6 +388,335 @@ const levelWordBanks = {
         { word: 'CANDAT', icon: '🔒', text: 'CAN-DAT' },         { word: 'SAC', icon: '👝', text: 'SAC' },
         { word: 'CUBELL', icon: '🗑️', text: 'CU-BELL' },         { word: 'ESPONJA', icon: '🧽', text: 'ES-PON-JA' },
         { word: 'SABO', icon: '🧼', text: 'SA-BO' },         { word: 'TOVALLOLA', icon: '🛁', text: 'TO-VA-LLO-LA' }
+    ],
+    51: [
+        { word: 'PARDAL', icon: '🐦', text: 'PAR-DAL' },         { word: 'EXTINTOR', icon: '🧯', text: 'EX-TIN-TOR' },
+        { word: 'FLAMENC', icon: '🦩', text: 'FLA-MENC' },         { word: 'BRUIXOLA', icon: '🧭', text: 'BRUI-XO-LA' },
+        { word: 'ESCUT', icon: '🛡️', text: 'ES-CUT' },         { word: 'MUSSOL', icon: '🦉', text: 'MUS-SOL' },
+        { word: 'DARD', icon: '🎯', text: 'DARD' },         { word: 'CORB', icon: '🐦‍⬛', text: 'CORB' },
+        { word: 'IMAN', icon: '🧲', text: 'I-MAN' },         { word: 'LLINTERNA', icon: '🔦', text: 'LLIN-TER-NA' }
+    ],
+    52: [
+        { word: 'CALAMAR', icon: '🦑', text: 'CA-LA-MAR' },         { word: 'BOMBA', icon: '💣', text: 'BOM-BA' },
+        { word: 'BITLES', icon: '🎳', text: 'BIT-LES' },         { word: 'SALMO', icon: '🍣', text: 'SAL-MO' },
+        { word: 'PEIXERA', icon: '🐠', text: 'PEIX-E-RA' },         { word: 'DOMINO', icon: '🁣', text: 'DO-MI-NO' },
+        { word: 'CORALL', icon: '🪸', text: 'CO-RALL' },         { word: 'CARAGOL', icon: '🐚', text: 'CA-RA-GOL' },
+        { word: 'ERICO', icon: '🦔', text: 'E-RI-CO' },         { word: 'PIU', icon: '📌', text: 'PIU' }
+    ],
+    53: [
+        { word: 'RENTADORA', icon: '🧺', text: 'REN-TA-DO-RA' },         { word: 'MICROONES', icon: '🍱', text: 'MI-CRO-O-NES' },
+        { word: 'TORRADORA', icon: '🍞', text: 'TO-RRA-DO-RA' },         { word: 'SOBRE', icon: '✉️', text: 'SO-BRE' },
+        { word: 'ABACO', icon: '🧮', text: 'A-BA-CO' },         { word: 'CINTA', icon: '🎗️', text: 'CIN-TA' },
+        { word: 'BROSSA', icon: '🪥', text: 'BROS-SA' },         { word: 'CANGUR', icon: '🦘', text: 'CAN-GUR' },
+        { word: 'AIXETA', icon: '🚰', text: 'AI-XE-TA' },         { word: 'DUTXA', icon: '🚿', text: 'DUT-XA' }
+    ],
+    54: [
+        { word: 'BISO', icon: '🦬', text: 'BI-SO' },         { word: 'FALC', icon: '🌾', text: 'FALC' },
+        { word: 'GUINEU', icon: '🦊', text: 'GUI-NEU' },         { word: 'MANGUERA', icon: '💦', text: 'MAN-GUE-RA' },
+        { word: 'MAPATXE', icon: '🦝', text: 'MA-PAT-XE' },         { word: 'TEIXO', icon: '🦡', text: 'TEI-XO' },
+        { word: 'CASTOR', icon: '🦫', text: 'CAS-TOR' },         { word: 'ALPACA', icon: '🦙', text: 'AL-PA-CA' },
+        { word: 'FEM', icon: '💩', text: 'FEM' },         { word: 'CAMELL', icon: '🐫', text: 'CA-MELL' }
+    ],
+    55: [
+        { word: 'VINAGRE', icon: '🍶', text: 'VI-NA-GRE' },         { word: 'MANDRIL', icon: '🦧', text: 'MAN-DRIL' },
+        { word: 'LLANGAR', icon: '🦎', text: 'LLAN-GAR' },         { word: 'XAROP', icon: '🥞', text: 'XA-ROP' },
+        { word: 'SALSA', icon: '🥫', text: 'SAL-SA' },         { word: 'MOSTASSA', icon: '🌭', text: 'MOS-TAS-SA' },
+        { word: 'SERP', icon: '🐍', text: 'SERP' },         { word: 'DINOSAUR', icon: '🦕', text: 'DI-NO-SAUR' },
+        { word: 'PAELLA', icon: '🥘', text: 'PA-EL-LA' },         { word: 'EMPANADA', icon: '🥟', text: 'EM-PA-NA-DA' }
+    ],
+    56: [
+        { word: 'MARGARIDA', icon: '🌼', text: 'MAR-GA-RI-DA' },         { word: 'GIRASOL', icon: '🌻', text: 'GI-RA-SOL' },
+        { word: 'LLIRI', icon: '🪷', text: 'LLI-RI' },         { word: 'ORQUIDIA', icon: '🌸', text: 'OR-QUI-DI-A' },
+        { word: 'CACTUS', icon: '🌵', text: 'CAC-TUS' },         { word: 'NOU', icon: '🌰', text: 'NOU' },
+        { word: 'PISTAXO', icon: '🥜', text: 'PIS-TA-XO' },         { word: 'TREVOL', icon: '☘️', text: 'TRE-VOL' },
+        { word: 'SEGELL', icon: '📮', text: 'SE-GELL' },         { word: 'PITXER', icon: '🏺', text: 'PIT-XER' }
+    ],
+    57: [
+        { word: 'OVNI', icon: '🛸', text: 'OV-NI' },         { word: 'BALLAR', icon: '💃', text: 'BAL-LAR' },
+        { word: 'ALIEN', icon: '👽', text: 'A-LI-EN' },         { word: 'ESCRIURE', icon: '✍️', text: 'ES-CRIU-RE' },
+        { word: 'ROBOT', icon: '🤖', text: 'RO-BOT' },         { word: 'MONSTRE', icon: '👾', text: 'MONS-TRE' },
+        { word: 'SALTAR', icon: '🤸', text: 'SAL-TAR' },         { word: 'FANTASMA', icon: '👻', text: 'FAN-TAS-MA' },
+        { word: 'ZOMBI', icon: '🧟', text: 'ZOM-BI' },         { word: 'REINA', icon: '👸', text: 'REI-NA' }
+    ],
+    58: [
+        { word: 'NINJA', icon: '🥷', text: 'NIN-JA' },         { word: 'ESPIA', icon: '🕵️', text: 'ES-PI-A' },
+        { word: 'CREUER', icon: '🛳️', text: 'CREU-ER' },         { word: 'ROCA', icon: '🪨', text: 'RO-CA' },
+        { word: 'TRINEU', icon: '🛷', text: 'TRI-NEU' },         { word: 'TELEFERIC', icon: '🚠', text: 'TE-LE-FE-RIC' },
+        { word: 'ZEPELIN', icon: '🛩️', text: 'ZE-PE-LIN' },         { word: 'RIURE', icon: '😂', text: 'RIU-RE' },
+        { word: 'PLORAR', icon: '😭', text: 'PLO-RAR' },         { word: 'SOMRIURE', icon: '🙂', text: 'SOM-RIU-RE' }
+    ],
+    59: [
+        { word: 'ENFADAT', icon: '😡', text: 'EN-FA-DAT' },         { word: 'MOTOR', icon: '⚙️', text: 'MO-TOR' },
+        { word: 'FELIC', icon: '🥳', text: 'FE-LIC' },         { word: 'SORPRESA', icon: '😲', text: 'SOR-PRE-SA' },
+        { word: 'POR', icon: '😨', text: 'POR' },         { word: 'AMOR', icon: '❤️', text: 'A-MOR' },
+        { word: 'PAU', icon: '✌️', text: 'PAU' },         { word: 'ANCORA', icon: '⚓', text: 'AN-CO-RA' },
+        { word: 'PLASTI', icon: '🍡', text: 'PLAS-TI' },         { word: 'CANICA', icon: '🔮', text: 'CA-NI-CA' }
+    ],
+    60: [
+        { word: 'MAGENTA', icon: '🩷', text: 'MA-GEN-TA' },         { word: 'ESPASA', icon: '🗡️', text: 'ES-PA-SA' },
+        { word: 'DIAMANT', icon: '💎', text: 'DI-A-MANT' },         { word: 'CARTA', icon: '💌', text: 'CAR-TA' },
+        { word: 'LLUNA', icon: '🌜', text: 'LLU-NA' },         { word: 'PASTEL', icon: '🧁', text: 'PAS-TEL' },
+        { word: 'AGULLA', icon: '🪡', text: 'A-GUL-LA' },         { word: 'OCULARS', icon: '🥽', text: 'O-CU-LARS' },
+        { word: 'PAMELA', icon: '👒', text: 'PA-ME-LA' },         { word: 'SIRENA', icon: '🚨', text: 'SI-RE-NA' }
+    ],
+    61: [
+        { word: 'FAROL', icon: '🏮', text: 'FA-ROL' },         { word: 'MUSEU', icon: '🏛️', text: 'MU-SEU' },
+        { word: 'BALA', icon: '🔫', text: 'BA-LA' },         { word: 'MARCA', icon: '🔖', text: 'MAR-CA' },
+        { word: 'MOLI', icon: '🛖', text: 'MO-LI' },         { word: 'RATOLI', icon: '🖱️', text: 'RA-TO-LI' },
+        { word: 'POU', icon: '🪣', text: 'POU' },         { word: 'IMPRES', icon: '🖨️', text: 'IM-PRES' },
+        { word: 'KIWI', icon: '🥝', text: 'KI-WI' },         { word: 'MANGO', icon: '🥭', text: 'MAN-GO' }
+    ],
+    62: [
+        { word: 'DISC', icon: '💿', text: 'DISC' },         { word: 'CINTA', icon: '📼', text: 'CIN-TA' },
+        { word: 'VIDEO', icon: '📹', text: 'VI-DE-O' },         { word: 'COCO', icon: '🥥', text: 'CO-CO' },
+        { word: 'LLIBRE', icon: '📖', text: 'LLI-BRE' },         { word: 'UNICORN', icon: '🦄', text: 'U-NI-CORN' },
+        { word: 'MAMUT', icon: '🦣', text: 'MA-MUT' },         { word: 'DODO', icon: '🦤', text: 'DO-DO' },
+        { word: 'PANDA', icon: '🐼', text: 'PAN-DA' },         { word: 'COALA', icon: '🐨', text: 'CO-A-LA' }
+    ],
+    63: [
+        { word: 'GUANT', icon: '🧤', text: 'GUANT' },         { word: 'CINTURO', icon: '🥋', text: 'CIN-TU-RO' },
+        { word: 'MITJO', icon: '🧦', text: 'MIT-JO' },         { word: 'XANCLETA', icon: '🩴', text: 'XAN-CLE-TA' },
+        { word: 'MOCADOR', icon: '🤧', text: 'MO-CA-DOR' },         { word: 'ESQUENA', icon: '🔙', text: 'ES-QUE-NA' },
+        { word: 'CINTURA', icon: '🧍', text: 'CIN-TU-RA' },         { word: 'GENOLL', icon: '🦵', text: 'GE-NOLL' },
+        { word: 'TOBMELL', icon: '🦶', text: 'TOB-MELL' },         { word: 'TALO', icon: '👠', text: 'TA-LO' }
+    ],
+    64: [
+        { word: 'POLZE', icon: '👍', text: 'POL-ZE' },         { word: 'PUNY', icon: '👊', text: 'PUNY' },
+        { word: 'BARBA', icon: '🧔', text: 'BAR-BA' },         { word: 'BIGOTI', icon: '🥸', text: 'BI-GO-TI' },
+        { word: 'PESTANYA', icon: '👁️', text: 'PES-TAN-YA' },         { word: 'LLENCOL', icon: '🛏️', text: 'LLEN-COL' },
+        { word: 'MANTA', icon: '🛌', text: 'MAN-TA' },         { word: 'TORN', icon: '🪛', text: 'TORN' },
+        { word: 'XEMENEIA', icon: '🏭', text: 'XE-ME-NEI-A' },         { word: 'COSTA', icon: '🏖️', text: 'COS-TA' }
+    ],
+    65: [
+        { word: 'CAP', icon: '🗻', text: 'CAP' },         { word: 'ESTRET', icon: '🚤', text: 'ES-TRET' },
+        { word: 'PENINSULA', icon: '🗺️', text: 'PE-NIN-SU-LA' },         { word: 'CONTINENT', icon: '🌍', text: 'CON-TI-NENT' },
+        { word: 'POL', icon: '🧊', text: 'POL' },         { word: 'EQUADOR', icon: '☀️', text: 'E-QUA-DOR' },
+        { word: 'TROPIC', icon: '🌴', text: 'TRO-PIC' },         { word: 'HEMISFERI', icon: '🌐', text: 'HE-MIS-FE-RI' },
+        { word: 'MENJAR', icon: '🍽️', text: 'MEN-JAR' },         { word: 'BEURE', icon: '🥤', text: 'BEU-RE' }
+    ],
+    66: [
+        { word: 'DORMIR', icon: '😴', text: 'DOR-MIR' },         { word: 'DESPERTAR', icon: '🥱', text: 'DES-PER-TAR' },
+        { word: 'LLAVAR', icon: '🧼', text: 'LLA-VAR' },         { word: 'PENTINAR', icon: '梳', text: 'PEN-TI-NAR' },
+        { word: 'VESTIR', icon: '👗', text: 'VES-TIR' },         { word: 'DESVESTIR', icon: '👙', text: 'DES-VES-TIR' },
+        { word: 'CAMINAR', icon: '🚶', text: 'CA-MI-NAR' },         { word: 'PARAR', icon: '🛑', text: 'PA-RAR' },
+        { word: 'ZERO', icon: '0️⃣', text: 'ZE-RO' },         { word: 'UN', icon: '1️⃣', text: 'UN' }
+    ],
+    67: [
+        { word: 'DOS', icon: '2️⃣', text: 'DOS' },         { word: 'TRES', icon: '3️⃣', text: 'TRES' },
+        { word: 'QUATRE', icon: '4️⃣', text: 'QUA-TRE' },         { word: 'CINC', icon: '5️⃣', text: 'CINC' },
+        { word: 'SIS', icon: '6️⃣', text: 'SIS' },         { word: 'SET', icon: '7️⃣', text: 'SET' },
+        { word: 'VUIT', icon: '8️⃣', text: 'VUIT' },         { word: 'NOU', icon: '9️⃣', text: 'NOU' },
+        { word: 'OVAL', icon: '🥚', text: 'O-VAL' },         { word: 'CREU', icon: '➕', text: 'CREU' }
+    ],
+    68: [
+        { word: 'FLETXA', icon: '➡️', text: 'FLET-XA' },         { word: 'LINIA', icon: '➖', text: 'LI-NI-A' },
+        { word: 'PUNT', icon: '🔴', text: 'PUNT' },         { word: 'CUB', icon: '🧊', text: 'CUB' },
+        { word: 'ESFERA', icon: '🔮', text: 'ES-FE-RA' },         { word: 'FUSTA', icon: '🪵', text: 'FUS-TA' },
+        { word: 'FERRO', icon: '⛓️', text: 'FER-RO' },         { word: 'OR', icon: '🥇', text: 'OR' },
+        { word: 'PLATA', icon: '🥈', text: 'PLA-TA' },         { word: 'COURE', icon: '🥉', text: 'COU-RE' }
+    ],
+    69: [
+        { word: 'PEDRA', icon: '🪨', text: 'PE-DRA' },         { word: 'CRISTALL', icon: '💎', text: 'CRIS-TALL' },
+        { word: 'VIDRE', icon: '🪟', text: 'VI-DRE' },         { word: 'PLASTIC', icon: '🥤', text: 'PLAS-TIC' },
+        { word: 'DIA', icon: '☀️', text: 'DI-A' },         { word: 'NIT', icon: '🌙', text: 'NIT' },
+        { word: 'MATI', icon: '🌅', text: 'MA-TI' },         { word: 'VESPRADA', icon: '🌆', text: 'VES-PRA-DA' },
+        { word: 'HORA', icon: '⏳', text: 'HO-RA' },         { word: 'MINUT', icon: '⏱️', text: 'MI-NUT' }
+    ],
+    70: [
+        { word: 'SEGON', icon: '⏲️', text: 'SE-GON' },         { word: 'SETMANA', icon: '📅', text: 'SET-MA-NA' },
+        { word: 'MES', icon: '📆', text: 'MES' },         { word: 'ANY', icon: '🗓️', text: 'ANY' },
+        { word: 'HIVERN', icon: '❄️', text: 'HI-VERN' },         { word: 'PRIMAVERA', icon: '🌸', text: 'PRI-MA-VE-RA' },
+        { word: 'ESTIU', icon: '☀️', text: 'ES-TIU' },         { word: 'TARDOR', icon: '🍂', text: 'TAR-DOR' },
+        { word: 'GENER', icon: '⛄', text: 'GE-NER' },         { word: 'ABRIL', icon: '🌧️', text: 'A-BRIL' }
+    ],
+    71: [
+        { word: 'JULIOL', icon: '🏖️', text: 'JU-LI-OL' },         { word: 'AGOST', icon: '🥵', text: 'A-GOST' },
+        { word: 'OCTUBRE', icon: '🎃', text: 'OC-TU-BRE' },         { word: 'DESEMBRE', icon: '🎄', text: 'DE-SEM-BRE' },
+        { word: 'ARQUITECTE', icon: '📐', text: 'AR-QUI-TEC-TE' },         { word: 'ENGIYER', icon: '⚙️', text: 'EN-GI-NYER' },
+        { word: 'CIENTIFIC', icon: '🔬', text: 'CI-EN-TI-FIC' },         { word: 'INFORMATIC', icon: '💻', text: 'IN-FOR-MA-TIC' },
+        { word: 'PERIODISTA', icon: '📰', text: 'PE-RI-O-DIS-TA' },         { word: 'FOTOGRAF', icon: '📷', text: 'FO-TO-GRAF' }
+    ],
+    72: [
+        { word: 'ESCRIPTOR', icon: '✍️', text: 'ES-CRIP-TOR' },         { word: 'FARMACEUTIC', icon: '💊', text: 'FAR-MA-CEU-TIC' },
+        { word: 'VETERINARI', icon: '🐶', text: 'VE-TE-RI-NA-RI' },         { word: 'DENTISTA', icon: '🦷', text: 'DEN-TIS-TA' },
+        { word: 'CICLISME', icon: '🚴', text: 'CI-CLIS-ME' },         { word: 'ATLETISME', icon: '🏃', text: 'AT-LE-TIS-ME' },
+        { word: 'GIMNASTICA', icon: '🤸', text: 'GIM-NAS-TI-CA' },         { word: 'BOXE', icon: '🥊', text: 'BO-XE' },
+        { word: 'ESGRIMA', icon: '🤺', text: 'ES-GRI-MA' },         { word: 'HOCKEY', icon: '🏑', text: 'HOC-KEY' }
+    ],
+    73: [
+        { word: 'RUGBY', icon: '🏉', text: 'RUG-BY' },         { word: 'VOLEIBOL', icon: '🏐', text: 'VO-LEI-BOL' },
+        { word: 'BEISBOL', icon: '⚾', text: 'BEIS-BOL' },         { word: 'PINGPONG', icon: '🏓', text: 'PING-PONG' },
+        { word: 'SISTEMA', icon: '🌌', text: 'SIS-TE-MA' },         { word: 'SOLAR', icon: '☀️', text: 'SO-LAR' },
+        { word: 'LLEVIA', icon: '☄️', text: 'LLE-VI-A' },         { word: 'METEORIT', icon: '🪨', text: 'ME-TE-O-RIT' },
+        { word: 'ORBITA', icon: '🪐', text: 'OR-BI-TA' },         { word: 'SATELIT', icon: '🛰️', text: 'SA-TE-LIT' }
+    ],
+    74: [
+        { word: 'NAU', icon: '🛸', text: 'NAU' },         { word: 'ARENA', icon: '🏖️', text: 'A-RE-NA' },
+        { word: 'ONADA', icon: '🌊', text: 'O-NA-DA' },         { word: 'UMBRELA', icon: '⛱️', text: 'UM-BRE-LA' },
+        { word: 'CREMA', icon: '🧴', text: 'CRE-MA' },         { word: 'PALA', icon: '⛏️', text: 'PA-LA' },
+        { word: 'FULLA', icon: '🍂', text: 'FUL-LA' },         { word: 'BRANCA', icon: '🌿', text: 'BRAN-CA' },
+        { word: 'TRONC', icon: '🪵', text: 'TRONC' }
+    ],
+    75: [
+        { word: 'ARREL', icon: '🌱', text: 'AR-REL' },         { word: 'GLA', icon: '🌰', text: 'GLA' },
+        { word: 'ONZE', icon: '1️⃣', text: 'ON-ZE' },         { word: 'DOTZE', icon: '1️⃣', text: 'DOT-ZE' },
+        { word: 'TRETZE', icon: '1️⃣', text: 'TRET-ZE' },         { word: 'CATORZE', icon: '1️⃣', text: 'CA-TOR-ZE' },
+        { word: 'QUINZE', icon: '1️⃣', text: 'QUIN-ZE' },         { word: 'SETZE', icon: '1️⃣', text: 'SET-ZE' },
+        { word: 'DUISET', icon: '1️⃣', text: 'DUI-SET' },         { word: 'DIVUIT', icon: '1️⃣', text: 'DI-VUIT' }
+    ],
+    76: [
+        { word: 'DINOU', icon: '1️⃣', text: 'DI-NOU' },         { word: 'VINT', icon: '2️⃣', text: 'VINT' },
+        { word: 'VIOLETA', icon: '🍆', text: 'VI-O-LE-TA' },         { word: 'GRAN', icon: '🐘', text: 'GRAN' },
+        { word: 'MENUT', icon: '🐁', text: 'ME-NUT' },         { word: 'ALT', icon: '🦒', text: 'ALT' },
+        { word: 'BAIX', icon: '🐜', text: 'BAIX' },         { word: 'LLARG', icon: '🐍', text: 'LLARG' },
+        { word: 'CURT', icon: '🐛', text: 'CURT' },         { word: 'GROS', icon: '🦛', text: 'GROS' }
+    ],
+    77: [
+        { word: 'PRIM', icon: '🦩', text: 'PRIM' },         { word: 'FORT', icon: '💪', text: 'FORT' },
+        { word: 'FEBLE', icon: '🥀', text: 'FE-BLE' },         { word: 'BONIC', icon: '😍', text: 'BO-NIC' },
+        { word: 'LLEIG', icon: '👹', text: 'LLEIG' },         { word: 'VELL', icon: '👴', text: 'VELL' },
+        { word: 'JOVE', icon: '🧒', text: 'JO-VE' },         { word: 'FRED', icon: '🥶', text: 'FRED' },
+        { word: 'CALENT', icon: '🥵', text: 'CA-LENT' },         { word: 'DUR', icon: '🪨', text: 'DUR' }
+    ],
+    78: [
+        { word: 'BIGOT', icon: '🧔', text: 'BI-GOT' },         { word: 'RAPID', icon: '🐆', text: 'RA-PID' },
+        { word: 'VISTA', icon: '👁️', text: 'VIS-TA' },         { word: 'OIDA', icon: '👂', text: 'OI-DA' },
+        { word: 'OLFACTE', icon: '👃', text: 'OL-FAC-TE' },         { word: 'GUST', icon: '👅', text: 'GUST' },
+        { word: 'TACTE', icon: '🖐️', text: 'TAC-TE' },         { word: 'VEURE', icon: '👀', text: 'VEU-RE' },
+        { word: 'ESCOLTAR', icon: '🎧', text: 'ES-COL-TAR' },         { word: 'OLORAR', icon: '💐', text: 'O-LO-RAR' }
+    ],
+    79: [
+        { word: 'SABOREJAR', icon: '😋', text: 'SA-BO-RE-JAR' },         { word: 'TOCAR', icon: '👇', text: 'TO-CAR' },
+        { word: 'METRE', icon: '📐', text: 'ME-TRE' },         { word: 'BASCULA', icon: '⚖️', text: 'BAS-CU-LA' },
+        { word: 'TERMOMETRE', icon: '🌡️', text: 'TER-MO-ME-TRE' },         { word: 'RELO', icon: '⌚', text: 'RE-LO' },
+        { word: 'CRONOMETRE', icon: '⏱️', text: 'CRO-NO-ME-TRE' },         { word: 'CALENDARI', icon: '📅', text: 'CA-LEN-DA-RI' },
+        { word: 'BRUIXOLA', icon: '🧭', text: 'BRUI-XO-LA' },         { word: 'MAPA', icon: '🗺️', text: 'MA-PA' }
+    ],
+    80: [
+        { word: 'QUADER', icon: '📓', text: 'QUA-DER' },         { word: 'BOLI', icon: '🖋️', text: 'BO-LI' },
+        { word: 'RECTANGLE', icon: '🟦', text: 'REC-TAN-GLE' },         { word: 'PENTAGON', icon: '⬠', text: 'PEN-TA-GON' },
+        { word: 'HEXAGON', icon: '⬡', text: 'HEX-A-GON' },         { word: 'OCTOGON', icon: '🛑', text: 'OC-TO-GON' },
+        { word: 'PEGAS', icon: '🐎', text: 'PE-GAS' },         { word: 'CENTAUR', icon: '🏹', text: 'CEN-TAUR' },
+        { word: 'GEGANT', icon: '🧌', text: 'GE-GANT' },         { word: 'ELFO', icon: '🧝', text: 'EL-FO' }
+    ],
+    81: [
+        { word: 'GNOM', icon: '🎅', text: 'GNOM' },         { word: 'MAG', icon: '🧙‍♂️', text: 'MAG' },
+        { word: 'ACROBATA', icon: '🤸', text: 'A-CRO-BA-TA' },         { word: 'MALABARISTA', icon: '🤹', text: 'MA-LA-BA-RIS-TA' },
+        { word: 'DOMADOR', icon: '🦁', text: 'DO-MA-DOR' },         { word: 'CAPITA', icon: '⚓', text: 'CA-PI-TA' },
+        { word: 'PIRATA', icon: '🏴‍☠️', text: 'PI-RA-TA' },         { word: 'MONOPATI', icon: '🛹', text: 'MO-NO-PA-TI' },
+        { word: 'SUBMARI', icon: '⛴️', text: 'SUB-MA-RI' },         { word: 'UNIVERS', icon: '🌠', text: 'U-NI-VERS' }
+    ],
+    82: [
+        { word: 'CANGUR', icon: '🦘', text: 'CAN-GUR' },         { word: 'TALP', icon: '🐹', text: 'TALP' },
+        { word: 'BISO', icon: '🦬', text: 'BI-SO' },         { word: 'GUINEU', icon: '🦊', text: 'GUI-NEU' },
+        { word: 'MAPATXE', icon: '🦝', text: 'MA-PAT-XE' },         { word: 'TEIXO', icon: '🦡', text: 'TEI-XO' },
+        { word: 'CASTOR', icon: '🦫', text: 'CAS-TOR' },         { word: 'VAMPIR', icon: '🦇', text: 'VAM-PIR' },
+        { word: 'ALPACA', icon: '🦙', text: 'AL-PA-CA' },         { word: 'CAMELL', icon: '🐫', text: 'CA-MELL' }
+    ],
+    83: [
+        { word: 'MANDRIL', icon: '🦧', text: 'MAN-DRIL' },         { word: 'LLEMU', icon: '🐒', text: 'LLE-MU' },
+        { word: 'GOS', icon: '🐶', text: 'GOS' },         { word: 'GAT', icon: '🐱', text: 'GAT' },
+        { word: 'LLANGAR', icon: '🦎', text: 'LLAN-GAR' },         { word: 'SERP', icon: '🐍', text: 'SERP' },
+        { word: 'CROCODIL', icon: '🐊', text: 'CRO-CO-DIL' },         { word: 'TIRANO', icon: '🦖', text: 'TI-RA-NO' },
+        { word: 'TRICERA', icon: '🦕', text: 'TRI-CE-RA' },         { word: 'RAPTOR', icon: '🦖', text: 'RAP-TOR' }
+    ],
+    84: [
+        { word: 'OBRIR', icon: '👐', text: 'O-BRIR' },         { word: 'TANCAR', icon: '🔒', text: 'TAN-CAR' },
+        { word: 'PUJAR', icon: '🧗', text: 'PU-JAR' },         { word: 'BAIXAR', icon: '⛷️', text: 'BAI-XAR' },
+        { word: 'DIR', icon: '🗣️', text: 'DIR' },         { word: 'CALLAR', icon: '🤫', text: 'CA-LLAR' },
+        { word: 'ENTRAR', icon: '🚪', text: 'EN-TRAR' },         { word: 'EIXIR', icon: '🏃', text: 'EI-XIR' },
+        { word: 'CAURE', icon: '🤕', text: 'CAU-RE' },         { word: 'LLIMON', icon: '🍋', text: 'LLI-MON' }
+    ],
+    85: [
+        { word: 'ORXATA', icon: '🥛', text: 'OR-XA-TA' },         { word: 'COCA', icon: '🥮', text: 'CO-CA' },
+        { word: 'FARTON', icon: '🥖', text: 'FAR-TON' },         { word: 'BUNYOL', icon: '🍩', text: 'BU-NYOL' },
+        { word: 'PAELLA', icon: '🥘', text: 'PA-EL-LA' },         { word: 'FIDEUA', icon: '🥘', text: 'FI-DEU-A' },
+        { word: 'PUTXERO', icon: '🍲', text: 'PUT-XE-RO' },         { word: 'GASPATX', icon: '🥣', text: 'GAS-PATX' },
+        { word: 'EMPAN', icon: '🥟', text: 'EM-PAN' },         { word: 'AMETLA', icon: '🌰', text: 'A-MET-LA' }
+    ],
+    86: [
+        { word: 'AVELLAN', icon: '🥜', text: 'A-VEL-LAN' },         { word: 'PISTAXO', icon: '🥜', text: 'PIS-TA-XO' },
+        { word: 'CACA', icon: '🥜', text: 'CA-CA' },         { word: 'MANDARI', icon: '🍊', text: 'MAN-DA-RI' },
+        { word: 'POMELO', icon: '🍊', text: 'PO-ME-LO' },         { word: 'MORA', icon: '🫐', text: 'MO-RA' },
+        { word: 'GERD', icon: '🍓', text: 'GERD' },         { word: 'FASOL', icon: '🫘', text: 'FA-SOL' },
+        { word: 'PINZELL', icon: '🖌️', text: 'PIN-ZELL' },         { word: 'TINTA', icon: '✒️', text: 'TIN-TA' }
+    ],
+    87: [
+        { word: 'SEGELL', icon: '📮', text: 'SE-GELL' },         { word: 'SOBRE', icon: '✉️', text: 'SO-BRE' },
+        { word: 'POSTAL', icon: '📯', text: 'POS-TAL' },         { word: 'CAIXA', icon: '📦', text: 'CAI-XA' },
+        { word: 'PRESTAT', icon: '📚', text: 'PRES-TAT' },         { word: 'ESTORA', icon: '🛏️', text: 'ES-TO-RA' },
+        { word: 'CISTELL', icon: '🧺', text: 'CIS-TELL' },         { word: 'PITXER', icon: '🏺', text: 'PIT-XER' },
+        { word: 'OVNI', icon: '🛸', text: 'OV-NI' },         { word: 'ALIEN', icon: '👽', text: 'A-LI-EN' }
+    ],
+    88: [
+        { word: 'ROBOT', icon: '🤖', text: 'RO-BOT' },         { word: 'MONSTRE', icon: '👾', text: 'MONS-TRE' },
+        { word: 'MUTANT', icon: '🧟', text: 'MU-TANT' },         { word: 'FANTAS', icon: '👻', text: 'FAN-TAS' },
+        { word: 'ZOMBI', icon: '🧟', text: 'ZOM-BI' },         { word: 'HEROI', icon: '🦸', text: 'HE-ROI' },
+        { word: 'VILA', icon: '🦹', text: 'VI-LA' },         { word: 'NINJA', icon: '🥷', text: 'NIN-JA' },
+        { word: 'REI', icon: '🤴', text: 'REI' },         { word: 'REINA', icon: '👸', text: 'REI-NA' }
+    ],
+    89: [
+        { word: 'PRINCEP', icon: '🤴', text: 'PRIN-CEP' },         { word: 'PRINCES', icon: '👸', text: 'PRIN-CES' },
+        { word: 'CAVALLER', icon: '🏇', text: 'CA-VAL-LER' },         { word: 'ESPASE', icon: '🤺', text: 'ES-PA-SE' },
+        { word: 'ARQUER', icon: '🏹', text: 'AR-QUER' },         { word: 'LLADRE', icon: '🥷', text: 'LLA-DRE' },
+        { word: 'ESPIA', icon: '🕵️', text: 'ES-PI-A' },         { word: 'GUARDA', icon: '💂', text: 'GUAR-DA' },
+        { word: 'ESTANY', icon: '🏞️', text: 'ES-TANY' },         { word: 'BASSA', icon: '💧', text: 'BAS-SA' }
+    ],
+    90: [
+        { word: 'TOLL', icon: '💧', text: 'TOLL' },         { word: 'SOT', icon: '🕳️', text: 'SOT' },
+        { word: 'CINGLER', icon: '🏔️', text: 'CIN-GLER' },         { word: 'ROCA', icon: '🪨', text: 'RO-CA' },
+        { word: 'CRATER', icon: '🌋', text: 'CRA-TER' },         { word: 'GEISER', icon: '⛲', text: 'GEI-SER' },
+        { word: 'GLACAR', icon: '🧊', text: 'GLA-CAR' },         { word: 'PUDENT', icon: '🦨', text: 'PU-DENT' },
+        { word: 'TRINEU', icon: '🛷', text: 'TRI-NEU' },         { word: 'TIROLIN', icon: '🚠', text: 'TI-RO-LIN' }
+    ],
+    91: [
+        { word: 'TANDEM', icon: '🚲', text: 'TAN-DEM' },         { word: 'MOPED', icon: '🛵', text: 'MO-PED' },
+        { word: 'COTXET', icon: '🦼', text: 'COT-XET' },         { word: 'RUEDO', icon: '🛞', text: 'RUE-DO' },
+        { word: 'MOTOR', icon: '⚙️', text: 'MO-TOR' },         { word: 'VOLANT', icon: '🛞', text: 'VO-LANT' },
+        { word: 'FRE', icon: '🛑', text: 'FRE' },         { word: 'ANCORA', icon: '⚓', text: 'AN-CO-RA' },
+        { word: 'TURQUES', icon: '🩵', text: 'TUR-QUES' },         { word: 'MAGENTA', icon: '🩷', text: 'MA-GEN-TA' }
+    ],
+    92: [
+        { word: 'GRANA', icon: '❤️', text: 'GRA-NA' },         { word: 'FOSC', icon: '🖤', text: 'FOSC' },
+        { word: 'LLUMIN', icon: '✨', text: 'LLU-MIN' },         { word: 'MATE', icon: '🌫️', text: 'MA-TE' },
+        { word: 'BRILLANT', icon: '💎', text: 'BRIL-LANT' },         { word: 'NEO', icon: '🟢', text: 'NE-O' },
+        { word: 'PASTEL', icon: '🎨', text: 'PAS-TEL' },         { word: 'SOMBRA', icon: '👤', text: 'SOM-BRA' },
+        { word: 'BROCA', icon: '🪛', text: 'BRO-CA' },         { word: 'TORNILL', icon: '🔩', text: 'TOR-NILL' }
+    ],
+    93: [
+        { word: 'TUERCA', icon: '🔩', text: 'TU-ER-CA' },         { word: 'FIL', icon: '🧵', text: 'FIL' },
+        { word: 'AGULLA', icon: '🪡', text: 'A-GUL-LA' },         { word: 'CINTUR', icon: '🪢', text: 'CIN-TUR' },
+        { word: 'COLA', icon: '🧴', text: 'CO-LA' },         { word: 'NIVELL', icon: '📐', text: 'NI-VELL' },
+        { word: 'SABATIL', icon: '🩰', text: 'SA-BA-TIL' },         { word: 'ESCLOP', icon: '👞', text: 'ES-CLOP' },
+        { word: 'BOTI', icon: '🥾', text: 'BO-TI' },         { word: 'ANORAC', icon: '🧥', text: 'A-NO-RAC' }
+    ],
+    94: [
+        { word: 'BUF', icon: '🧣', text: 'BUF' },         { word: 'OCULARS', icon: '🥽', text: 'O-CU-LARS' },
+        { word: 'UJERES', icon: '🕶️', text: 'U-JE-RES' },         { word: 'BROSSA', icon: '🪥', text: 'BROS-SA' },
+        { word: 'XOCOL', icon: '🍫', text: 'XO-COL' },         { word: 'BISCUIT', icon: '🍪', text: 'BIS-CUIT' },
+        { word: 'TARTAL', icon: '🥧', text: 'TAR-TAL' },         { word: 'NATIL', icon: '🍮', text: 'NA-TIL' },
+        { word: 'TORRO', icon: '🍫', text: 'TOR-RO' },         { word: 'GELATIN', icon: '🍮', text: 'GE-LA-TIN' }
+    ],
+    95: [
+        { word: 'POLO', icon: '🍦', text: 'PO-LO' },         { word: 'XURRO', icon: '🥖', text: 'XUR-RO' },
+        { word: 'XANDAL', icon: '🎽', text: 'XAN-DAL' },         { word: 'SUDADER', icon: '🧥', text: 'SU-DA-DER' },
+        { word: 'XUPA', icon: '🧥', text: 'XU-PA' },         { word: 'ANOR', icon: '🧥', text: 'A-NOR' },
+        { word: 'GORR', icon: '🧢', text: 'GORR' },         { word: 'PAMELA', icon: '👒', text: 'PA-ME-LA' },
+        { word: 'TIARA', icon: '👑', text: 'TI-A-RA' },         { word: 'ANEL', icon: '💍', text: 'A-NEL' }
+    ],
+    96: [
+        { word: 'PULSERA', icon: '📿', text: 'PUL-SE-RA' },         { word: 'COLLARE', icon: '📿', text: 'COL-LA-RE' },
+        { word: 'PIERCING', icon: '💎', text: 'PI-ER-CING' },         { word: 'RELLOT', icon: '⌚', text: 'REL-LOT' },
+        { word: 'ALARMA', icon: '⏰', text: 'A-LAR-MA' },         { word: 'CAMPAN', icon: '🔔', text: 'CAM-PAN' },
+        { word: 'LLUMEN', icon: '💡', text: 'LLU-MEN' },         { word: 'FAROL', icon: '🏮', text: 'FA-ROL' },
+        { word: 'LINTERN', icon: '🔦', text: 'LIN-TERN' },         { word: 'FOGUERA', icon: '🔥', text: 'FO-GUE-RA' }
+    ],
+    97: [
+        { word: 'ESPELMA', icon: '🕯️', text: 'ES-PEL-MA' },         { word: 'CENDRE', icon: '🚬', text: 'CEN-DRE' },
+        { word: 'CALIU', icon: '🔥', text: 'CA-LIU' },         { word: 'FLAMA', icon: '🔥', text: 'FLA-MA' },
+        { word: 'XISPA', icon: '✨', text: 'XIS-PA' },         { word: 'BOMBA', icon: '💣', text: 'BOM-BA' },
+        { word: 'MISIL', icon: '🚀', text: 'MI-SIL' },         { word: 'BALA', icon: '🔫', text: 'BA-LA' },
+        { word: 'DARD', icon: '🎯', text: 'DARD' },         { word: 'DIANA', icon: '🎯', text: 'DI-A-NA' }
     ]
 };
 
@@ -403,7 +732,7 @@ function shuffleArray(array) {
 
 function getEffectiveLevel() {
     let lvl = currentLevelNumber;
-    while (lvl > 50) lvl -= 50; 
+    while (lvl > 100) lvl -= 100; 
     return lvl;
 }
 
