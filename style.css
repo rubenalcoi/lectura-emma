@@ -351,6 +351,21 @@ body {
     gap: 1.5rem;
     width: 100%;
     justify-content: center;
+    flex-wrap: wrap; /* per a que caiguen en varies línies */
+}
+
+.image-options-grid.grid-8-items {
+    max-width: 800px;
+    gap: 1rem;
+}
+
+.image-options-grid.grid-8-items .image-option-card {
+    width: 130px;
+    height: 130px;
+}
+
+.image-options-grid.grid-8-items .option-icon {
+    font-size: 5rem;
 }
 
 .image-option-card {
