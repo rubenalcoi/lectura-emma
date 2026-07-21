@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LLIBRE DE LECTURA D me'N - JOC DE LECTURA SENSE AUDIO AUTOMÀTIC
+   LLIBRE DE LECTURA D'EMMA - JOC DE LECTURA AMB DIFICULTAT PROGRESSIVA I SENSE REPETICIONS
    ========================================================================== */
 
 const unitsData = [
@@ -206,7 +206,10 @@ let gameTargetIndex = 0;
 let currentWordObj = null;
 let typedChars = [];
 
-// Bancs de paraules (Mínim 4 lletres, sense accents)
+// Historial de paraules usades per evitar repeticions consecutives
+let usedReadingWords = [];
+
+// AMPLIACIÓ DE BANCS DE PARAULES PER A DIFICULTAT I VARIETAT REAL
 const difficultyWordBanks = {
     facil: [
         { word: 'POMA', icon: '🍎', text: 'PO-MA' },
@@ -219,7 +222,11 @@ const difficultyWordBanks = {
         { word: 'CASA', icon: '🏠', text: 'CA-SA' },
         { word: 'PEPA', icon: '🐷', text: 'PE-PA' },
         { word: 'PAPA', icon: '👨', text: 'PA-PA' },
-        { word: 'MAMA', icon: '👩', text: 'MA-MA' }
+        { word: 'MAMA', icon: '👩', text: 'MA-MA' },
+        { word: 'LILA', icon: '🪻', text: 'LI-LA' },
+        { word: 'ROBA', icon: '👗', text: 'RO-BA' },
+        { word: 'BOTA', icon: '🥾', text: 'BO-TA' },
+        { word: 'MIA', icon: '👧', text: 'MI-A' }
     ],
     mitja: [
         { word: 'LLIMA', icon: '🍋', text: 'LLI-MA' },
@@ -229,16 +236,25 @@ const difficultyWordBanks = {
         { word: 'TOTO', icon: '🧸', text: 'TO-TO' },
         { word: 'TATA', icon: '👵', text: 'TA-TA' },
         { word: 'POPA', icon: '⛵', text: 'PO-PA' },
-        { word: 'PIPA', icon: '🎷', text: 'PI-PA' }
+        { word: 'PIPA', icon: '🎷', text: 'PI-PA' },
+        { word: 'BATO', icon: '🦆', text: 'BA-TO' },
+        { word: 'LLEO', icon: '🦁', text: 'LLE-O' },
+        { word: 'SACO', icon: '🎒', text: 'SA-CO' },
+        { word: 'FADA', icon: '🧚', text: 'FA-DA' },
+        { word: 'ROSA', icon: '🌹', text: 'RO-SA' },
+        { word: 'NEU', icon: '❄️', text: 'NE-U' }
     ],
     avancat: [
         { word: 'TOMATA', icon: '🍅', text: 'TO-MA-TA' },
         { word: 'TULIPA', icon: '🌷', text: 'TU-LI-PA' },
         { word: 'PAQUET', icon: '📦', text: 'PA-QUET' },
-        { word: 'NINU', icon: '🪆', text: 'NIN-U' },
-        { word: 'LLEO', icon: '🦁', text: 'LLE-O' },
-        { word: 'SACO', icon: '🎒', text: 'SA-CO' },
-        { word: 'FADA', icon: '🧚', text: 'FA-DA' }
+        { word: 'PIANO', icon: '🎹', text: 'PI-A-NO' },
+        { word: 'DOFI', icon: '🐬', text: 'DO-FI' },
+        { word: 'TISSORES', icon: '✂️', text: 'TIS-SO-RES' },
+        { word: 'FORMATGE', icon: '🧀', text: 'FOR-MAT-GE' },
+        { word: 'VOLCAN', icon: '🌋', text: 'VOL-CAN' },
+        { word: 'PELOTA', icon: '⚽', text: 'PE-LO-TA' },
+        { word: 'MOMIA', icon: '🧟', text: 'MO-MI-A' }
     ]
 };
 
@@ -378,12 +394,21 @@ function renderProgressTrackHTML() {
     `;
 }
 
+// DETERMINAR LA DIFICULTAT AUTOMÀTICA PER NIVELL DE JOC
+function getEffectiveDifficulty() {
+    if (currentLevelNumber <= 2) return currentDifficulty || 'facil';
+    if (currentLevelNumber <= 4) return 'mitja';
+    return 'avancat';
+}
+
 // =========================================================================
 // 1. JOC DE LECTURA ("ENDEVINA LA IMATGE")
 // =========================================================================
 function renderReadingGameStage() {
     const stageContainer = document.getElementById('mainStage');
     if (!stageContainer) return;
+
+    const effDiff = getEffectiveDifficulty();
 
     stageContainer.innerHTML = `
         <div class="arcade-game-wrapper">
@@ -397,6 +422,12 @@ function renderReadingGameStage() {
                     <div class="score-badge badge-lvl">🏆 NIV <strong>${currentLevelNumber}</strong></div>
                     <div class="score-badge badge-words">🎯 ${totalWordsCompleted % 10}/10</div>
                     <div class="score-badge badge-pts">⭐ ${gameScore} pts</div>
+                </div>
+
+                <div class="diff-selector">
+                    <button class="diff-btn ${effDiff === 'facil' ? 'active' : ''}" onclick="setDifficulty('facil')">🌱 Fàcil</button>
+                    <button class="diff-btn ${effDiff === 'mitja' ? 'active' : ''}" onclick="setDifficulty('mitja')">⭐ Mitjà</button>
+                    <button class="diff-btn ${effDiff === 'avancat' ? 'active' : ''}" onclick="setDifficulty('avancat')">🚀 Avançat</button>
                 </div>
             </div>
 
@@ -434,8 +465,20 @@ function renderReadingGameStage() {
 function loadNextReadingTarget() {
     if (!isReadingGameMode) return;
 
-    const bank = difficultyWordBanks[currentDifficulty] || difficultyWordBanks.facil;
-    currentWordObj = bank[gameTargetIndex % bank.length];
+    const effDiff = getEffectiveDifficulty();
+    const bank = difficultyWordBanks[effDiff] || difficultyWordBanks.facil;
+
+    // Filtrar per a no repetir les últimes paraules jugades
+    let availableWords = bank.filter(w => !usedReadingWords.includes(w.word));
+    if (availableWords.length === 0) {
+        usedReadingWords = [];
+        availableWords = bank;
+    }
+
+    // Triar una paraula a l'atzar del banc actiu
+    const randIndex = Math.floor(Math.random() * availableWords.length);
+    currentWordObj = availableWords[randIndex];
+    usedReadingWords.push(currentWordObj.word);
 
     const targetWordEl = document.getElementById('readingTargetWord');
     const optionsGridEl = document.getElementById('imageOptionsGrid');
@@ -448,9 +491,9 @@ function loadNextReadingTarget() {
     let otherWords = bank.filter(w => w.word !== currentWordObj.word);
 
     while (options.length < 4 && otherWords.length > 0) {
-        const randIdx = Math.floor(Math.random() * otherWords.length);
-        options.push(otherWords[randIdx]);
-        otherWords.splice(randIdx, 1);
+        const rIdx = Math.floor(Math.random() * otherWords.length);
+        options.push(otherWords[rIdx]);
+        otherWords.splice(rIdx, 1);
     }
 
     options.sort(() => Math.random() - 0.5);
@@ -461,7 +504,7 @@ function loadNextReadingTarget() {
         </div>
     `).join('');
 
-    // S'HA ELIMINAT L'ÀUDIO AUTOMÀTIC PER A QUE EMMA HAGE DE LLEGIR ELLA MATEIXA LA PARAULA!
+    // SENSE ÀUDIO AUTOMÀTIC PER A QUE EMMA LLEGEIXA
 }
 
 window.handleReadingChoice = function(chosenWord, element) {
@@ -476,7 +519,6 @@ window.handleReadingChoice = function(chosenWord, element) {
         localStorage.setItem('emma_game_score', gameScore);
         localStorage.setItem('emma_words_completed', totalWordsCompleted);
 
-        // Quan encerta, SÍ que es llegeix la paraula per a felicitar-la!
         speakText(`Molt bé! És ${currentWordObj.word}!`);
 
         if (totalWordsCompleted > 0 && totalWordsCompleted % 10 === 0) {
@@ -505,6 +547,8 @@ function renderTypingGameStage() {
     const stageContainer = document.getElementById('mainStage');
     if (!stageContainer) return;
 
+    const effDiff = getEffectiveDifficulty();
+
     stageContainer.innerHTML = `
         <div class="arcade-game-wrapper">
             <div class="game-header-bar">
@@ -520,9 +564,9 @@ function renderTypingGameStage() {
                 </div>
 
                 <div class="diff-selector">
-                    <button class="diff-btn ${currentDifficulty === 'facil' ? 'active' : ''}" onclick="setDifficulty('facil')">🌱 Fàcil</button>
-                    <button class="diff-btn ${currentDifficulty === 'mitja' ? 'active' : ''}" onclick="setDifficulty('mitja')">⭐ Mitjà</button>
-                    <button class="diff-btn ${currentDifficulty === 'avancat' ? 'active' : ''}" onclick="setDifficulty('avancat')">🚀 Avançat</button>
+                    <button class="diff-btn ${effDiff === 'facil' ? 'active' : ''}" onclick="setDifficulty('facil')">🌱 Fàcil</button>
+                    <button class="diff-btn ${effDiff === 'mitja' ? 'active' : ''}" onclick="setDifficulty('mitja')">⭐ Mitjà</button>
+                    <button class="diff-btn ${effDiff === 'avancat' ? 'active' : ''}" onclick="setDifficulty('avancat')">🚀 Avançat</button>
                 </div>
             </div>
 
@@ -570,13 +614,17 @@ function renderTypingGameStage() {
 window.setDifficulty = function(diff) {
     currentDifficulty = diff;
     if (isGameMode) renderTypingGameStage();
-    if (isReadingGameMode) renderReadingGameStage();
+    if (isReadingGameMode) {
+        renderReadingGameStage();
+        loadNextReadingTarget();
+    }
 };
 
 function loadNextGameTarget() {
     if (!isGameMode) return;
 
-    const bank = difficultyWordBanks[currentDifficulty] || difficultyWordBanks.facil;
+    const effDiff = getEffectiveDifficulty();
+    const bank = difficultyWordBanks[effDiff] || difficultyWordBanks.facil;
     currentWordObj = bank[gameTargetIndex % bank.length];
     typedChars = [];
 
