@@ -397,7 +397,7 @@ const levelWordBanks = {
         { word: 'IMAN', icon: '🧲', text: 'I-MAN' },         { word: 'LLINTERNA', icon: '🔦', text: 'LLIN-TER-NA' }
     ],
     52: [
-        { word: 'CALAMAR', icon: '🦑', text: 'CA-LA-MAR' },         { word: 'BOMBA', icon: '💣', text: 'BOM-BA' },
+        { word: 'CALAMAR', icon: '🦑', text: 'CA-LA-MAR' },         { word: 'TROMPO', icon: '🧸', text: 'TROM-PO' },
         { word: 'BITLES', icon: '🎳', text: 'BIT-LES' },         { word: 'SALMO', icon: '🍣', text: 'SAL-MO' },
         { word: 'PEIXERA', icon: '🐠', text: 'PEIX-E-RA' },         { word: 'DOMINO', icon: '🁣', text: 'DO-MI-NO' },
         { word: 'CORALL', icon: '🪸', text: 'CO-RALL' },         { word: 'CARAGOL', icon: '🐚', text: 'CA-RA-GOL' },
@@ -453,7 +453,7 @@ const levelWordBanks = {
         { word: 'PLASTI', icon: '🍡', text: 'PLAS-TI' },         { word: 'CANICA', icon: '🔮', text: 'CA-NI-CA' }
     ],
     60: [
-        { word: 'MAGENTA', icon: '🩷', text: 'MA-GEN-TA' },         { word: 'ESPASA', icon: '🗡️', text: 'ES-PA-SA' },
+        { word: 'MAGENTA', icon: '🩷', text: 'MA-GEN-TA' },         { word: 'CROMO', icon: '🖼️', text: 'CRO-MO' },
         { word: 'DIAMANT', icon: '💎', text: 'DI-A-MANT' },         { word: 'CARTA', icon: '💌', text: 'CAR-TA' },
         { word: 'LLUNA', icon: '🌜', text: 'LLU-NA' },         { word: 'PASTEL', icon: '🧁', text: 'PAS-TEL' },
         { word: 'AGULLA', icon: '🪡', text: 'A-GUL-LA' },         { word: 'OCULARS', icon: '🥽', text: 'O-CU-LARS' },
@@ -461,7 +461,7 @@ const levelWordBanks = {
     ],
     61: [
         { word: 'FAROL', icon: '🏮', text: 'FA-ROL' },         { word: 'MUSEU', icon: '🏛️', text: 'MU-SEU' },
-        { word: 'BALA', icon: '🔫', text: 'BA-LA' },         { word: 'MARCA', icon: '🔖', text: 'MAR-CA' },
+        { word: 'CAROTA', icon: '🎭', text: 'CA-RO-TA' },         { word: 'MARCA', icon: '🔖', text: 'MAR-CA' },
         { word: 'MOLI', icon: '🛖', text: 'MO-LI' },         { word: 'RATOLI', icon: '🖱️', text: 'RA-TO-LI' },
         { word: 'POU', icon: '🪣', text: 'POU' },         { word: 'IMPRES', icon: '🖨️', text: 'IM-PRES' },
         { word: 'KIWI', icon: '🥝', text: 'KI-WI' },         { word: 'MANGO', icon: '🥭', text: 'MAN-GO' }
@@ -712,10 +712,10 @@ const levelWordBanks = {
         { word: 'LINTERN', icon: '🔦', text: 'LIN-TERN' },         { word: 'FOGUERA', icon: '🔥', text: 'FO-GUE-RA' }
     ],
     97: [
-        { word: 'ESPELMA', icon: '🕯️', text: 'ES-PEL-MA' },         { word: 'CENDRE', icon: '🚬', text: 'CEN-DRE' },
+        { word: 'ESPELMA', icon: '🕯️', text: 'ES-PEL-MA' },         { word: 'RAQUETA', icon: '🏸', text: 'RA-QUE-TA' },
         { word: 'CALIU', icon: '🔥', text: 'CA-LIU' },         { word: 'FLAMA', icon: '🔥', text: 'FLA-MA' },
-        { word: 'XISPA', icon: '✨', text: 'XIS-PA' },         { word: 'BOMBA', icon: '💣', text: 'BOM-BA' },
-        { word: 'MISIL', icon: '🚀', text: 'MI-SIL' },         { word: 'BALA', icon: '🔫', text: 'BA-LA' },
+        { word: 'XISPA', icon: '✨', text: 'XIS-PA' },         { word: 'TROMPO', icon: '🧸', text: 'TROM-PO' },
+        { word: 'MISIL', icon: '🚀', text: 'MI-SIL' },         { word: 'CAROTA', icon: '🎭', text: 'CA-RO-TA' },
         { word: 'DARD', icon: '🎯', text: 'DARD' },         { word: 'DIANA', icon: '🎯', text: 'DI-A-NA' }
     ]
 };
