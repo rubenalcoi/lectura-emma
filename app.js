@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LLIBRE DE LECTURA D'EMMA - SENSE ACCENTS, NIVELLS CADA 10 PARAULES I JOC DE LECTURA
+   LLIBRE DE LECTURA D'EMMA - ACCESOS DIRECTES A LA PORTADA I CAMÍ ANIMAT
    ========================================================================== */
 
 const unitsData = [
@@ -206,7 +206,7 @@ let gameTargetIndex = 0;
 let currentWordObj = null;
 let typedChars = [];
 
-// Bancs de paraules per a DIFICULTAT MÍNIMA DE 4 LLETRES (SENSE ACCENTS)
+// Bancs de paraules (Mínim 4 lletres, sense accents)
 const difficultyWordBanks = {
     facil: [
         { word: 'POMA', icon: '🍎', text: 'PO-MA' },
@@ -354,8 +354,28 @@ function renderCurrentStage() {
     }
 }
 
+// Generar la barra del camí animat (Progress Track Bar)
+function renderProgressTrackHTML() {
+    const stepCount = totalWordsCompleted % 10;
+    const percentage = (stepCount / 10) * 100;
+
+    return `
+        <div class="progress-track-container">
+            <div class="track-info">
+                <span>🏃 CAMÍ CAP AL TROFEU: <strong>${stepCount}/10 passos</strong></span>
+                <span>🏆 NIVELL ${currentLevelNumber}</span>
+            </div>
+            <div class="track-bar-bg">
+                <div class="track-bar-fill" style="width: ${percentage}%"></div>
+                <div class="track-mascot" style="left: calc(${percentage}% - 25px)">🦄</div>
+                <div class="track-finish-flag">🏆</div>
+            </div>
+        </div>
+    `;
+}
+
 // =========================================================================
-// 1. JOC DE LECTURA ("ENDEVINA LA IMATGE") - REQUERIMENT NOU
+// 1. JOC DE LECTURA ("ENDEVINA LA IMATGE")
 // =========================================================================
 function renderReadingGameStage() {
     const stageContainer = document.getElementById('mainStage');
@@ -376,13 +396,13 @@ function renderReadingGameStage() {
                 </div>
             </div>
 
+            ${renderProgressTrackHTML()}
+
             <div class="reading-game-play-area">
                 <p class="reading-instruction">LLEGEIX LA PARAULA I SELECCIONA LA IMATGE CORRECTA:</p>
                 <div class="reading-target-word" id="readingTargetWord" onclick="speakText(this.innerText)">PO-MA</div>
 
-                <div class="image-options-grid" id="imageOptionsGrid">
-                    <!-- Es generen les 4 opcions d'imatges -->
-                </div>
+                <div class="image-options-grid" id="imageOptionsGrid"></div>
             </div>
         </div>
 
@@ -414,7 +434,6 @@ function loadNextReadingTarget() {
 
     targetWordEl.innerText = currentWordObj.text || currentWordObj.word;
 
-    // Crear 4 opcions (1 correcta i 3 incorrectes)
     let options = [currentWordObj];
     let otherWords = bank.filter(w => w.word !== currentWordObj.word);
 
@@ -424,7 +443,6 @@ function loadNextReadingTarget() {
         otherWords.splice(randIdx, 1);
     }
 
-    // Barrejar opcions
     options.sort(() => Math.random() - 0.5);
 
     optionsGridEl.innerHTML = options.map(opt => `
@@ -440,7 +458,6 @@ window.handleReadingChoice = function(chosenWord, element) {
     if (!currentWordObj) return;
 
     if (chosenWord === currentWordObj.word) {
-        // Enciert!
         element.classList.add('correct');
         playSuccessSound();
         gameScore += 10;
@@ -451,7 +468,6 @@ window.handleReadingChoice = function(chosenWord, element) {
 
         speakText(`Molt bé! És ${currentWordObj.word}!`);
 
-        // CELEBRACIÓ CADA 10 PARAULES
         if (totalWordsCompleted > 0 && totalWordsCompleted % 10 === 0) {
             currentLevelNumber = Math.floor(totalWordsCompleted / 10) + 1;
             renderUnitTabs();
@@ -466,7 +482,6 @@ window.handleReadingChoice = function(chosenWord, element) {
             }, 1400);
         }
     } else {
-        // Error
         element.classList.add('wrong');
         playErrorSound();
     }
@@ -499,6 +514,8 @@ function renderTypingGameStage() {
                     <button class="diff-btn ${currentDifficulty === 'avancat' ? 'active' : ''}" onclick="setDifficulty('avancat')">🚀 Avançat</button>
                 </div>
             </div>
+
+            ${renderProgressTrackHTML()}
 
             <div class="game-play-area" id="gamePlayArea">
                 <div class="target-visual" id="targetIcon">🍎</div>
@@ -624,7 +641,6 @@ function processTypedChar(char) {
             playSuccessSound();
             speakText(`Molt bé! Has escrit ${currentWordObj.word}!`);
 
-            // CELEBRACIÓ CADA 10 PARAULES
             if (totalWordsCompleted > 0 && totalWordsCompleted % 10 === 0) {
                 currentLevelNumber = Math.floor(totalWordsCompleted / 10) + 1;
                 renderUnitTabs();
@@ -817,6 +833,27 @@ function renderCoverHTML() {
                 <div class="cover-name-ribbon">
                     <span>AQUEST LLIBRE PERTANY A:</span>
                     <strong class="student-name">EMMA ✨</strong>
+                </div>
+            </div>
+
+            <!-- TARGETES D'ACCÉS DIRECTE ALS JOCS A LA PORTADA -->
+            <div class="cover-games-shortcuts-grid">
+                <div class="game-shortcut-card card-reading-shortcut" onclick="startReadingGame()">
+                    <div class="shortcut-icon">📖</div>
+                    <div class="shortcut-info">
+                        <h3>JOC DE LECTURA</h3>
+                        <p>Llegeix la paraula i troba la imatge correcta!</p>
+                    </div>
+                    <button class="btn btn-shortcut-reading">🚀 JUGAR A LLEGIR</button>
+                </div>
+
+                <div class="game-shortcut-card card-typing-shortcut" onclick="startTypingGame()">
+                    <div class="shortcut-icon">🎹</div>
+                    <div class="shortcut-info">
+                        <h3>JOC D'ESCRIURE</h3>
+                        <p>Practica les síl·labes escrivint en el teclat!</p>
+                    </div>
+                    <button class="btn btn-shortcut-typing">⌨️ JUGAR A ESCRIURE</button>
                 </div>
             </div>
 

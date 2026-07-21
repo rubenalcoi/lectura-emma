@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LLIBRE DE LECTURA D'EMMA - JOC DE LECTURA I JOC D'ESCRIURE EN TECLAT
+   LLIBRE DE LECTURA D'EMMA - ACCESOS DIRECTES A LA PORTADA I CAMÍ ANIMAT
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
@@ -159,15 +159,120 @@ body {
 }
 
 /* ==========================================================================
-   1. JOC DE LECTURA ("ENDEVINA LA IMATGE")
+   CAMÍ D'EMMA - BARRA DE PROGRESSIÓ AMB MASCOTA ANIMADA
    ========================================================================== */
+.progress-track-container {
+    width: 100%;
+    background: #FFFBEB;
+    border: 2px solid #FDE68A;
+    border-radius: var(--radius-md);
+    padding: 0.8rem 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.track-info {
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-reading);
+    font-size: 1.05rem;
+    color: #92400E;
+    margin-bottom: 0.4rem;
+}
+
+.track-bar-bg {
+    position: relative;
+    height: 26px;
+    background: #E2E8F0;
+    border-radius: 50px;
+    overflow: visible;
+    border: 2px solid #CBD5E1;
+}
+
+.track-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-yellow) 0%, var(--accent-green) 100%);
+    border-radius: 50px;
+    transition: width 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.track-mascot {
+    position: absolute;
+    top: -22px;
+    font-size: 2.3rem;
+    transition: left 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: bounceMascot 1s infinite alternate;
+}
+
+@keyframes bounceMascot {
+    from { transform: translateY(0); }
+    to { transform: translateY(-6px); }
+}
+
+.track-finish-flag {
+    position: absolute;
+    right: 5px;
+    top: -10px;
+    font-size: 1.8rem;
+}
+
+/* ==========================================================================
+   DRECERES DE JOCS A LA PORTADA
+   ========================================================================== */
+.cover-games-shortcuts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 1.2rem 0;
+}
+
+.game-shortcut-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.6rem;
+    border: 3px solid #E2E8F0;
+    box-shadow: var(--shadow-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.game-shortcut-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-reading-shortcut { border-color: var(--accent-orange); background: #FFFDF5; }
+.card-typing-shortcut { border-color: var(--accent-pink); background: #FFF5FB; }
+
+.shortcut-icon { font-size: 3.5rem; }
+
+.shortcut-info h3 {
+    font-family: var(--font-reading);
+    font-size: 1.3rem;
+    color: var(--text-dark);
+}
+
+.shortcut-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.btn-shortcut-reading { background: var(--accent-orange); color: white; border: none; font-family: var(--font-reading); border-radius: 50px; font-size: 1.1rem; }
+.btn-shortcut-typing { background: var(--accent-pink); color: white; border: none; font-family: var(--font-reading); border-radius: 50px; font-size: 1.1rem; }
+
+/* JOC DE LECTURA ("ENDEVINA LA IMATGE") */
 .reading-game-play-area {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
 }
 
 .reading-instruction {
@@ -192,16 +297,14 @@ body {
     transition: transform 0.2s ease;
 }
 
-.reading-target-word:hover {
-    transform: scale(1.05);
-}
+.reading-target-word:hover { transform: scale(1.05); }
 
 .image-options-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.2rem;
     width: 100%;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 .image-option-card {
@@ -242,13 +345,9 @@ body {
     75% { transform: translateX(8px); }
 }
 
-.option-icon {
-    font-size: 4.5rem;
-}
+.option-icon { font-size: 4.5rem; }
 
-/* ==========================================================================
-   2. JOC D'ESCRIURE EN TECLAT
-   ========================================================================== */
+/* JOC D'ESCRIURE EN TECLAT */
 .game-container {
     background: white;
     width: 100%;
@@ -285,11 +384,7 @@ body {
     color: var(--primary);
 }
 
-.game-stats-group {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
-}
+.game-stats-group { display: flex; align-items: center; gap: 0.8rem; }
 
 .score-badge {
     font-family: var(--font-reading);
