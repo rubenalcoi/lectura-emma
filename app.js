@@ -1,260 +1,143 @@
 /* ==========================================================================
-   LLIBRE DE LECTURA D'EMMA - PORTADA SUPER NETTA SENSE SCROLL (FIT-TO-SCREEN)
+   LLIBRE I JOCS D'EMMA - LÒGICA 10 NIVELLS I ZERO REPETICIONS
    ========================================================================== */
 
 const unitsData = [
     { id: 'cover', title: 'Portada', isCover: true },
-
-    // =========================================================================
-    // NIVELL 1: CONSONANTS INICIALS (UNA SOLA CONSONANT)
-    // =========================================================================
     {
-        id: 'n1-m', level: 1, letter: 'M', title: 'LA LLETRA M (NIVELL 1)', subtitle: 'Sols la lletra M + Vocals (MA, ME, MI, MO, MU)',
+        id: 'n1-m', level: 1, letter: 'M', title: 'LA LLETRA M', subtitle: 'Sols la lletra M + Vocals',
         syllables: [
-            { text: 'MA', comb: 'M + A', cardClass: 'syl-card-a' },
-            { text: 'ME', comb: 'M + E', cardClass: 'syl-card-e' },
-            { text: 'MI', comb: 'M + I', cardClass: 'syl-card-i' },
-            { text: 'MO', comb: 'M + O', cardClass: 'syl-card-o' },
-            { text: 'MU', comb: 'M + U', cardClass: 'syl-card-u' }
+            { text: 'MA', comb: 'M + A', cardClass: 'syl-card-a' }, { text: 'ME', comb: 'M + E', cardClass: 'syl-card-e' },
+            { text: 'MI', comb: 'M + I', cardClass: 'syl-card-i' }, { text: 'MO', comb: 'M + O', cardClass: 'syl-card-o' }, { text: 'MU', comb: 'M + U', cardClass: 'syl-card-u' }
         ],
         shuffledLines: [['ME', 'MO', 'MA', 'MU', 'MI'], ['MU', 'MI', 'ME', 'MA', 'MO']],
-        words: [
-            { parts: ['MA', 'MA'], icon: '👩', fullText: 'MA-MA' },
-            { parts: ['MI', 'A'], icon: '👧', fullText: 'MI-A' },
-            { parts: ['MI', 'U'], icon: '🐱', fullText: 'MI-U' },
-            { parts: ['MO', 'MI', 'A'], icon: '🧟', fullText: 'MO-MI-A' }
-        ],
-        sentences: [
-            { words: [{ syls: ['MA', 'MA'] }, { syls: ['A', 'MA'] }, { syls: ['A'] }, { syls: ['MI', 'A'] }], cleanText: 'MA-MA AMA A MIA.' },
-            { words: [{ syls: ['MI', 'A'] }, { syls: ['A', 'MA'] }, { syls: ['A'] }, { syls: ['MA', 'MA'] }], cleanText: 'MIA AMA A MA-MA.' },
-            { words: [{ syls: ['MI', 'U'] }, { syls: ['MI', 'A'] }, { syls: ['MA', 'MA'] }], cleanText: 'MIU MIA MAMA.' }
-        ]
+        words: [ { parts: ['MA', 'MA'], icon: '👩', fullText: 'MA-MA' }, { parts: ['MI', 'A'], icon: '👧', fullText: 'MI-A' } ],
+        sentences: [ { words: [{ syls: ['MA', 'MA'] }, { syls: ['A', 'MA'] }, { syls: ['A'] }, { syls: ['MI', 'A'] }], cleanText: 'MA-MA AMA A MIA.' } ]
     },
-    {
-        id: 'n1-p', level: 1, letter: 'P', title: 'LA LLETRA P (NIVELL 1)', subtitle: 'Sols la lletra P + Vocals (PA, PE, PI, PO, PU)',
-        syllables: [
-            { text: 'PA', comb: 'P + A', cardClass: 'syl-card-a' },
-            { text: 'PE', comb: 'P + E', cardClass: 'syl-card-e' },
-            { text: 'PI', comb: 'P + I', cardClass: 'syl-card-i' },
-            { text: 'PO', comb: 'P + O', cardClass: 'syl-card-o' },
-            { text: 'PU', comb: 'P + U', cardClass: 'syl-card-u' }
-        ],
-        shuffledLines: [['PE', 'PO', 'PA', 'PU', 'PI'], ['PU', 'PI', 'PE', 'PA', 'PO']],
-        words: [
-            { parts: ['PA', 'PA'], icon: '👨', fullText: 'PA-PA' },
-            { parts: ['PI', 'PA'], icon: '🎷', fullText: 'PI-PA' },
-            { parts: ['PE', 'PA'], icon: '🐷', fullText: 'PE-PA' },
-            { parts: ['PO', 'PA'], icon: '⛵', fullText: 'PO-PA' }
-        ],
-        sentences: [
-            { words: [{ syls: ['PA', 'PA'] }, { syls: ['PI', 'A'] }], cleanText: 'PA-PA PIA.' },
-            { words: [{ syls: ['PE', 'PA'] }, { syls: ['PI', 'A'] }], cleanText: 'PE-PA PIA.' },
-            { words: [{ syls: ['PA', 'PA'] }, { syls: ['PE', 'PA'] }, { syls: ['PO', 'PA'] }], cleanText: 'PA-PA PE-PA PO-PA.' }
-        ]
-    },
-    {
-        id: 'n1-l', level: 1, letter: 'L', title: 'LA LLETRA L (NIVELL 1)', subtitle: 'Sols la lletra L + Vocals (LA, LE, LI, LO, LU)',
-        syllables: [
-            { text: 'LA', comb: 'L + A', cardClass: 'syl-card-a' },
-            { text: 'LE', comb: 'L + E', cardClass: 'syl-card-e' },
-            { text: 'LI', comb: 'L + I', cardClass: 'syl-card-i' },
-            { text: 'LO', comb: 'L + O', cardClass: 'syl-card-o' },
-            { text: 'LU', comb: 'L + U', cardClass: 'syl-card-u' }
-        ],
-        shuffledLines: [['LE', 'LO', 'LA', 'LU', 'LI'], ['LU', 'LI', 'LE', 'LA', 'LO']],
-        words: [
-            { parts: ['LA', 'LA'], icon: '👩', fullText: 'LA-LA' },
-            { parts: ['LU', 'LU'], icon: '👧', fullText: 'LU-LU' },
-            { parts: ['LI', 'LI'], icon: '🌸', fullText: 'LI-LI' },
-            { parts: ['A', 'LA'], icon: '🪶', fullText: 'A-LA' }
-        ],
-        sentences: [
-            { words: [{ syls: ['LA', 'LA'] }, { syls: ['A', 'LA'] }], cleanText: 'LA-LA ALA.' },
-            { words: [{ syls: ['LU', 'LU'] }, { syls: ['A', 'MA'] }, { syls: ['A'] }, { syls: ['LA', 'LA'] }], cleanText: 'LU-LU AMA A LA-LA.' },
-            { words: [{ syls: ['O', 'LA'] }, { syls: ['LU', 'LU'] }], cleanText: 'OLA LU-LU.' }
-        ]
-    },
-    {
-        id: 'n1-t', level: 1, letter: 'T', title: 'LA LLETRA T (NIVELL 1)', subtitle: 'Sols la lletra T + Vocals (TA, TE, TI, TO, TU)',
-        syllables: [
-            { text: 'TA', comb: 'T + A', cardClass: 'syl-card-a' },
-            { text: 'TE', comb: 'T + E', cardClass: 'syl-card-e' },
-            { text: 'TI', comb: 'T + I', cardClass: 'syl-card-i' },
-            { text: 'TO', comb: 'T + O', cardClass: 'syl-card-o' },
-            { text: 'TU', comb: 'T + U', cardClass: 'syl-card-u' }
-        ],
-        shuffledLines: [['TE', 'TO', 'TA', 'TU', 'TI'], ['TU', 'TI', 'TE', 'TA', 'TO']],
-        words: [
-            { parts: ['TO', 'TO'], icon: '🧸', fullText: 'TO-TO' },
-            { parts: ['TA', 'TA'], icon: '👵', fullText: 'TA-TA' },
-            { parts: ['TI', 'TI'], icon: '🐵', fullText: 'TI-TI' },
-            { parts: ['TU', 'TU'], icon: '👗', fullText: 'TU-TU' }
-        ],
-        sentences: [
-            { words: [{ syls: ['TO', 'TO'] }, { syls: ['TA', 'TA'] }], cleanText: 'TO-TO TA-TA.' },
-            { words: [{ syls: ['TI', 'TI'] }, { syls: ['A', 'MA'] }, { syls: ['A'] }, { syls: ['TO', 'TO'] }], cleanText: 'TI-TI AMA A TO-TO.' },
-            { words: [{ syls: ['TU'] }, { syls: ['TA', 'TA'] }], cleanText: 'TU TA-TA.' }
-        ]
-    },
-
-    // =========================================================================
-    // NIVELL 2: CONSONANTS INICIALS COMBINADES
-    // =========================================================================
-    {
-        id: 'n2-m', level: 2, letter: 'M', title: 'LA LLETRA M (NIVELL 2)', subtitle: 'Combinada amb altres consonants (MA, ME, MI, MO, MU)',
-        syllables: [
-            { text: 'MA', comb: 'M + A', cardClass: 'syl-card-a' },
-            { text: 'ME', comb: 'M + E', cardClass: 'syl-card-e' },
-            { text: 'MI', comb: 'M + I', cardClass: 'syl-card-i' },
-            { text: 'MO', comb: 'M + O', cardClass: 'syl-card-o' },
-            { text: 'MU', comb: 'M + U', cardClass: 'syl-card-u' }
-        ],
-        shuffledLines: [['ME', 'MO', 'MA', 'MU', 'MI'], ['MU', 'MI', 'ME', 'MA', 'MO']],
-        words: [
-            { parts: ['MA', 'MA'], icon: '👩', fullText: 'MA-MA' },
-            { parts: ['PO', 'MA'], icon: '🍎', fullText: 'PO-MA' },
-            { parts: ['LLI', 'MA'], icon: '🍋', fullText: 'LLI-MA' },
-            { parts: ['MO', 'MI', 'A'], icon: '🧟', fullText: 'MO-MI-A' }
-        ],
-        sentences: [
-            { words: [{ syls: ['LA'] }, { syls: ['MA', 'MA'] }, { syls: ['A', 'MA'] }, { syls: ['A'] }, { syls: ['EM', 'MA'] }], cleanText: 'LA MA-MA AMA A EMMA.' },
-            { words: [{ syls: ['LA'] }, { syls: ['PO', 'MA'] }, { syls: ['ES'] }, { syls: ['BO', 'NA'] }], cleanText: 'LA PO-MA ES BONA.' },
-            { words: [{ syls: ['MI', 'A'] }, { syls: ['TE'] }, { syls: ['U', 'NA'] }, { syls: ['LLI', 'MA'] }], cleanText: 'MIA TE UNA LLI-MA.' }
-        ]
-    },
-    {
-        id: 'n2-p', level: 2, letter: 'P', title: 'LA LLETRA P (NIVELL 2)', subtitle: 'Combinada amb altres consonants (PA, PE, PI, PO, PU)',
-        syllables: [
-            { text: 'PA', comb: 'P + A', cardClass: 'syl-card-a' },
-            { text: 'PE', comb: 'P + E', cardClass: 'syl-card-e' },
-            { text: 'PI', comb: 'P + I', cardClass: 'syl-card-i' },
-            { text: 'PO', comb: 'P + O', cardClass: 'syl-card-o' },
-            { text: 'PU', comb: 'P + U', cardClass: 'syl-card-u' }
-        ],
-        shuffledLines: [['PE', 'PO', 'PA', 'PU', 'PI'], ['PU', 'PI', 'PE', 'PA', 'PO']],
-        words: [
-            { parts: ['PA', 'PA'], icon: '👨', fullText: 'PA-PA' },
-            { parts: ['PI', 'PA'], icon: '🎷', fullText: 'PI-PA' },
-            { parts: ['PE', 'PA'], icon: '🐷', fullText: 'PE-PA' },
-            { parts: ['PO', 'PA'], icon: '⛵', fullText: 'PO-PA' }
-        ],
-        sentences: [
-            { words: [{ syls: ['EL'] }, { syls: ['PA', 'PA'] }, { syls: ['TE'] }, { syls: ['U', 'NA'] }, { syls: ['PI', 'PA'] }], cleanText: 'EL PA-PA TE UNA PI-PA.' },
-            { words: [{ syls: ['PE', 'PA'] }, { syls: ['MEN', 'JA'] }, { syls: ['PO', 'MA'] }], cleanText: 'PE-PA MENJA PO-MA.' },
-            { words: [{ syls: ['EL'] }, { syls: ['PI', 'A', 'NO'] }, { syls: ['SO', 'NA'] }, { syls: ['BE'] }], cleanText: 'EL PI-A-NO SONA BE.' }
-        ]
-    },
-    {
-        id: 'n3-bv', level: 3, letter: 'B/V', title: 'LES LLETRES B I V (NIVELL 3)', subtitle: 'Sols B/V + Vocals (BA, BE, BI, BO, BU / VA, VE, VI, VO, VU)',
-        syllables: [
-            { text: 'BA', comb: 'B + A', cardClass: 'syl-card-a' },
-            { text: 'BE', comb: 'B + E', cardClass: 'syl-card-e' },
-            { text: 'VI', comb: 'V + I', cardClass: 'syl-card-i' },
-            { text: 'VO', comb: 'V + O', cardClass: 'syl-card-o' },
-            { text: 'VU', comb: 'V + U', cardClass: 'syl-card-u' }
-        ],
-        shuffledLines: [['BE', 'VO', 'BA', 'VU', 'VI'], ['VU', 'VI', 'BE', 'BA', 'VO']],
-        words: [
-            { parts: ['BA', 'BA'], icon: '👵', fullText: 'BA-BA' },
-            { parts: ['BI', 'BI'], icon: '🍼', fullText: 'BI-BI' },
-            { parts: ['BO', 'BO'], icon: '🤡', fullText: 'BO-BO' },
-            { parts: ['VA', 'VA'], icon: '🐮', fullText: 'VA-VA' }
-        ],
-        sentences: [
-            { words: [{ syls: ['BA', 'BA'] }, { syls: ['VA', 'VA'] }], cleanText: 'BA-BA VA-VA.' },
-            { words: [{ syls: ['BI', 'BI'] }, { syls: ['BO', 'BO'] }], cleanText: 'BI-BI BO-BO.' },
-            { words: [{ syls: ['VI', 'VI'] }, { syls: ['BA', 'BA'] }], cleanText: 'VI-VI BA-BA.' }
-        ]
-    },
-    {
-        id: 'n4-bv', level: 4, letter: 'B/V', title: 'B I V COMBINADES (NIVELL 4)', subtitle: 'Lectura completa de paraules amb B i V',
-        syllables: [
-            { text: 'BA', comb: 'B + A', cardClass: 'syl-card-a' },
-            { text: 'BE', comb: 'B + E', cardClass: 'syl-card-e' },
-            { text: 'VA', comb: 'V + A', cardClass: 'syl-card-a' },
-            { text: 'VI', comb: 'V + I', cardClass: 'syl-card-i' },
-            { text: 'BO', comb: 'B + O', cardClass: 'syl-card-o' }
-        ],
-        shuffledLines: [['BE', 'VO', 'BA', 'VU', 'VI'], ['VU', 'VI', 'BE', 'BA', 'VO']],
-        words: [
-            { parts: ['VA', 'CA'], icon: '🐮', fullText: 'VA-CA' },
-            { parts: ['BA', 'TO'], icon: '🦆', fullText: 'BA-TO' },
-            { parts: ['BO', 'TA'], icon: '🥾', fullText: 'BO-TA' },
-            { parts: ['BI', 'CI'], icon: '🚲', fullText: 'BI-CI' }
-        ],
-        sentences: [
-            { words: [{ syls: ['LA'] }, { syls: ['VA', 'CA'] }, { syls: ['DO', 'NA'] }, { syls: ['LLET'] }], cleanText: 'LA VA-CA DONA LLET.' },
-            { words: [{ syls: ['EM', 'MA'] }, { syls: ['VA'] }, { syls: ['EN'] }, { syls: ['BI', 'CI'] }], cleanText: 'EMMA VA EN BI-CI.' },
-            { words: [{ syls: ['LA'] }, { syls: ['BO', 'TA'] }, { syls: ['ES'] }, { syls: ['BLA', 'VA'] }], cleanText: 'LA BO-TA ES BLAVA.' }
-        ]
-    }
+    // (Pots afegir la resta d'unitats de lectura per al mode imprimir si ho desitges, però ací optimitzem l'espai pel joc)
 ];
 
-// Estat de l'aplicació
+// ESTAT DE L'APLICACIÓ
 let currentUnitId = 'cover';
 let isAllUnitsMode = false;
 let isGameMode = false;
 let isReadingGameMode = false;
 let userStars = JSON.parse(localStorage.getItem('emma_stars') || '{}');
 
-// Estat del Joc
+// ESTAT DEL JOC
 let gameScore = parseInt(localStorage.getItem('emma_game_score') || '0');
 let totalWordsCompleted = parseInt(localStorage.getItem('emma_words_completed') || '0');
-let currentLevelNumber = Math.floor(totalWordsCompleted / 10) + 1;
-let currentDifficulty = 'facil';
-let gameTargetIndex = 0;
+let currentLevelNumber = Math.floor(totalWordsCompleted / 10) + 1; // 10 PARAULES PER NIVELL
+
+// GESTIÓ ROBUSTA ANTI-REPETICIONS
+let currentLevelShuffledWords = JSON.parse(localStorage.getItem('emma_shuffled_words') || '[]');
+let savedLevelForShuffle = parseInt(localStorage.getItem('emma_shuffle_level') || '0');
 let currentWordObj = null;
 let typedChars = [];
-let usedReadingWords = [];
 
-// BANCS DE PARAULES PER A DIFICULTAT PROGRESSIVA
-const difficultyWordBanks = {
-    facil: [
-        { word: 'POMA', icon: '🍎', text: 'PO-MA' },
-        { word: 'LUNA', icon: '🌙', text: 'LU-NA' },
-        { word: 'VACA', icon: '🐮', text: 'VA-CA' },
-        { word: 'BICI', icon: '🚲', text: 'BI-CI' },
-        { word: 'DADO', icon: '🎲', text: 'DA-DO' },
-        { word: 'SOPA', icon: '🍲', text: 'SO-PA' },
-        { word: 'RODA', icon: '🛞', text: 'RO-DA' },
-        { word: 'CASA', icon: '🏠', text: 'CA-SA' },
-        { word: 'PEPA', icon: '🐷', text: 'PE-PA' },
-        { word: 'PAPA', icon: '👨', text: 'PA-PA' },
-        { word: 'MAMA', icon: '👩', text: 'MA-MA' },
-        { word: 'LILA', icon: '🪻', text: 'LI-LA' },
-        { word: 'ROBA', icon: '👗', text: 'RO-BA' },
-        { word: 'BOTA', icon: '🥾', text: 'BO-TA' },
-        { word: 'MIA', icon: '👧', text: 'MI-A' }
+// =========================================================================
+// BANC DE 100 PARAULES EN VALENCIÀ CORRECTE (SENSE ACCENTS, 10 PER NIVELL)
+// =========================================================================
+const levelWordBanks = {
+    1: [
+        { word: 'POMA', icon: '🍎', text: 'PO-MA' }, { word: 'CASA', icon: '🏠', text: 'CA-SA' },
+        { word: 'GATA', icon: '🐈', text: 'GA-TA' }, { word: 'BOTA', icon: '🥾', text: 'BO-TA' },
+        { word: 'MAMA', icon: '👩', text: 'MA-MA' }, { word: 'PAPA', icon: '👨', text: 'PA-PA' },
+        { word: 'RODA', icon: '🛞', text: 'RO-DA' }, { word: 'SOPA', icon: '🍲', text: 'SO-PA' },
+        { word: 'VACA', icon: '🐮', text: 'VA-CA' }, { word: 'FADA', icon: '🧚', text: 'FA-DA' }
     ],
-    mitja: [
-        { word: 'LLIMA', icon: '🍋', text: 'LLI-MA' },
-        { word: 'SALA', icon: '🛋️', text: 'SA-LA' },
-        { word: 'COPA', icon: '🏆', text: 'CO-PA' },
-        { word: 'FOCA', icon: '🦭', text: 'FO-CA' },
-        { word: 'TOTO', icon: '🧸', text: 'TO-TO' },
-        { word: 'TATA', icon: '👵', text: 'TA-TA' },
-        { word: 'POPA', icon: '⛵', text: 'PO-PA' },
-        { word: 'PIPA', icon: '🎷', text: 'PI-PA' },
-        { word: 'BATO', icon: '🦆', text: 'BA-TO' },
-        { word: 'LLEO', icon: '🦁', text: 'LLE-O' },
-        { word: 'SACO', icon: '🎒', text: 'SA-CO' },
-        { word: 'FADA', icon: '🧚', text: 'FA-DA' },
-        { word: 'ROSA', icon: '🌹', text: 'RO-SA' },
-        { word: 'NEU', icon: '❄️', text: 'NE-U' }
+    2: [
+        { word: 'BICI', icon: '🚲', text: 'BI-CI' }, { word: 'COPA', icon: '🏆', text: 'CO-PA' },
+        { word: 'FOCA', icon: '🦭', text: 'FO-CA' }, { word: 'MOTO', icon: '🏍️', text: 'MO-TO' },
+        { word: 'PILA', icon: '🔋', text: 'PI-LA' }, { word: 'RATA', icon: '🐀', text: 'RA-TA' },
+        { word: 'TELA', icon: '🧵', text: 'TE-LA' }, { word: 'PIPA', icon: '🎷', text: 'PI-PA' },
+        { word: 'NINA', icon: '🪆', text: 'NI-NA' }, { word: 'LUPA', icon: '🔍', text: 'LU-PA' }
     ],
-    avancat: [
-        { word: 'TOMATA', icon: '🍅', text: 'TO-MA-TA' },
-        { word: 'TULIPA', icon: '🌷', text: 'TU-LI-PA' },
-        { word: 'PAQUET', icon: '📦', text: 'PA-QUET' },
-        { word: 'PIANO', icon: '🎹', text: 'PI-A-NO' },
-        { word: 'DOFI', icon: '🐬', text: 'DO-FI' },
-        { word: 'TISSORES', icon: '✂️', text: 'TIS-SO-RES' },
-        { word: 'FORMATGE', icon: '🧀', text: 'FOR-MAT-GE' },
-        { word: 'VOLCAN', icon: '🌋', text: 'VOL-CAN' },
-        { word: 'PELOTA', icon: '⚽', text: 'PE-LO-TA' },
-        { word: 'MOMIA', icon: '🧟', text: 'MO-MI-A' }
+    3: [
+        { word: 'LLUNA', icon: '🌙', text: 'LLU-NA' }, { word: 'PINYA', icon: '🍍', text: 'PI-NYA' },
+        { word: 'CANYA', icon: '🎋', text: 'CA-NYA' }, { word: 'BANYA', icon: '🦌', text: 'BA-NYA' },
+        { word: 'LLEO', icon: '🦁', text: 'LLE-O' }, { word: 'LLIMA', icon: '🍋', text: 'LLI-MA' },
+        { word: 'GOTA', icon: '💧', text: 'GO-TA' }, { word: 'ROSA', icon: '🌹', text: 'RO-SA' },
+        { word: 'MULA', icon: '🐴', text: 'MU-LA' }, { word: 'FAVA', icon: '🌱', text: 'FA-VA' }
+    ],
+    4: [
+        { word: 'ARBRE', icon: '🌳', text: 'AR-BRE' }, { word: 'COTXE', icon: '🚗', text: 'COT-XE' },
+        { word: 'BARCA', icon: '⛵', text: 'BAR-CA' }, { word: 'MOSCA', icon: '🪰', text: 'MOS-CA' },
+        { word: 'PORTA', icon: '🚪', text: 'POR-TA' }, { word: 'PORC', icon: '🐖', text: 'PORC' },
+        { word: 'GOSSA', icon: '🐕', text: 'GOS-SA' }, { word: 'BOLET', icon: '🍄', text: 'BO-LET' },
+        { word: 'GATET', icon: '🐱', text: 'GA-TET' }, { word: 'CARRO', icon: '🛒', text: 'CAR-RO' }
+    ],
+    5: [
+        { word: 'LLIBRE', icon: '📚', text: 'LLI-BRE' }, { word: 'PLANTA', icon: '🪴', text: 'PLAN-TA' },
+        { word: 'GLOBUS', icon: '🎈', text: 'GLO-BUS' }, { word: 'PLATJA', icon: '🏖️', text: 'PLAT-JA' },
+        { word: 'TIGRE', icon: '🐅', text: 'TI-GRE' }, { word: 'BRUIXA', icon: '🧙‍♀️', text: 'BRUI-XA' },
+        { word: 'CORONA', icon: '👑', text: 'CO-RO-NA' }, { word: 'SABATA', icon: '👞', text: 'SA-BA-TA' },
+        { word: 'CAMISA', icon: '👔', text: 'CA-MI-SA' }, { word: 'FORCA', icon: '🔱', text: 'FOR-CA' }
+    ],
+    6: [
+        { word: 'TOMATA', icon: '🍅', text: 'TO-MA-TA' }, { word: 'TULIPA', icon: '🌷', text: 'TU-LI-PA' },
+        { word: 'PILOTA', icon: '⚽', text: 'PI-LO-TA' }, { word: 'BALENA', icon: '🐳', text: 'BA-LE-NA' },
+        { word: 'CADIRA', icon: '🪑', text: 'CA-DI-RA' }, { word: 'TAULA', icon: '🪵', text: 'TAU-LA' },
+        { word: 'GELAT', icon: '🍦', text: 'GE-LAT' }, { word: 'ESTEL', icon: '⭐', text: 'ES-TEL' },
+        { word: 'SIRENA', icon: '🧜‍♀️', text: 'SI-RE-NA' }, { word: 'CASTELL', icon: '🏰', text: 'CAS-TELL' }
+    ],
+    7: [
+        { word: 'CAVALL', icon: '🐎', text: 'CA-VALL' }, { word: 'TORTUGA', icon: '🐢', text: 'TOR-TU-GA' },
+        { word: 'FORMIGA', icon: '🐜', text: 'FOR-MI-GA' }, { word: 'PLUJA', icon: '🌧️', text: 'PLU-JA' },
+        { word: 'PAQUET', icon: '📦', text: 'PA-QUET' }, { word: 'VAIXELL', icon: '🚢', text: 'VAI-XELL' },
+        { word: 'GUITARRA', icon: '🎸', text: 'GUI-TAR-RA' }, { word: 'FORMATGE', icon: '🧀', text: 'FOR-MAT-GE' },
+        { word: 'PALLASSO', icon: '🤡', text: 'PAL-LAS-SO' }, { word: 'CARGOL', icon: '🐌', text: 'CAR-GOL' }
+    ],
+    8: [
+        { word: 'FAMILIA', icon: '👨‍👩‍👧‍👦', text: 'FA-MI-LI-A' }, { word: 'ESCOLA', icon: '🏫', text: 'ES-CO-LA' },
+        { word: 'MOTXILLA', icon: '🎒', text: 'MOT-XIL-LA' }, { word: 'PISSARRA', icon: '🪧', text: 'PIS-SAR-RA' },
+        { word: 'LLAPIS', icon: '✏️', text: 'LLA-PIS' }, { word: 'TISORES', icon: '✂️', text: 'TI-SO-RES' },
+        { word: 'PINTURA', icon: '🎨', text: 'PIN-TU-RA' }, { word: 'PAPER', icon: '📄', text: 'PA-PER' },
+        { word: 'REGLE', icon: '📏', text: 'RE-GLE' }, { word: 'LLIBRETA', icon: '📓', text: 'LLI-BRE-TA' }
+    ],
+    9: [
+        { word: 'PLANETA', icon: '🪐', text: 'PLA-NE-TA' }, { word: 'ESTRELA', icon: '🌟', text: 'ES-TRE-LA' },
+        { word: 'COET', icon: '🚀', text: 'CO-ET' }, { word: 'COMETA', icon: '☄️', text: 'CO-ME-TA' },
+        { word: 'VOLCA', icon: '🌋', text: 'VOL-CA' }, { word: 'MUNTANYA', icon: '⛰️', text: 'MUN-TA-NYA' },
+        { word: 'DESERT', icon: '🏜️', text: 'DE-SERT' }, { word: 'OCEA', icon: '🌊', text: 'O-CE-A' },
+        { word: 'SELVA', icon: '🌴', text: 'SEL-VA' }, { word: 'ANIMAL', icon: '🐾', text: 'A-NI-MAL' }
+    ],
+    10: [
+        { word: 'TRICICLE', icon: '🛺', text: 'TRI-CI-CLE' }, { word: 'HELICOPTER', icon: '🚁', text: 'HE-LI-COP-TER' },
+        { word: 'TELEVISIO', icon: '📺', text: 'TE-LE-VI-SI-O' }, { word: 'ORDINADOR', icon: '💻', text: 'OR-DI-NA-DOR' },
+        { word: 'DINOSAURE', icon: '🦖', text: 'DI-NO-SAU-RE' }, { word: 'PAPALLONA', icon: '🦋', text: 'PA-PAL-LO-NA' },
+        { word: 'NEVERA', icon: '🧊', text: 'NE-VE-RA' }, { word: 'ESQUIROL', icon: '🐿️', text: 'ES-QUI-ROL' },
+        { word: 'ESQUELET', icon: '💀', text: 'ES-QUE-LET' }, { word: 'XOCOLATA', icon: '🍫', text: 'XO-CO-LA-TA' }
     ]
 };
+
+// UTILITATS
+function shuffleArray(array) {
+    let arr = [...array];
+    for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+function getEffectiveLevel() {
+    let lvl = currentLevelNumber;
+    while (lvl > 10) lvl -= 10; 
+    return lvl;
+}
+
+// GARANTIR CAP REPETICIÓ DINS D'UN NIVELL (I PERSISTENT ENTRE RECARREGUES)
+function ensureShuffledBank() {
+    const effLvl = getEffectiveLevel();
+    // Si hem canviat de nivell, o no tenim el banc guardat de 10 paraules, el generem
+    if (savedLevelForShuffle !== currentLevelNumber || currentLevelShuffledWords.length !== 10) {
+        currentLevelShuffledWords = shuffleArray(levelWordBanks[effLvl]);
+        savedLevelForShuffle = currentLevelNumber;
+        localStorage.setItem('emma_shuffled_words', JSON.stringify(currentLevelShuffledWords));
+        localStorage.setItem('emma_shuffle_level', savedLevelForShuffle.toString());
+    }
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     initApp();
@@ -262,69 +145,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function initApp() {
-    renderUnitTabs();
     renderCurrentStage();
 }
-
-function renderUnitTabs() {
-    const tabsContainer = document.getElementById('unitTabs');
-    if (!tabsContainer) return;
-
-    const n1 = unitsData.filter(u => u.level === 1);
-    const n2 = unitsData.filter(u => u.level === 2);
-
-    let html = `
-        <button class="unit-tab ${currentUnitId === 'cover' && !isAllUnitsMode && !isGameMode && !isReadingGameMode ? 'active' : ''}" onclick="switchUnit('cover')">
-            🌈 PORTADA
-        </button>
-        <button class="unit-tab tab-reading-game ${isReadingGameMode ? 'active' : ''}" onclick="startReadingGame()">
-            📖 JOC DE LECTURA (NIV ${currentLevelNumber})
-        </button>
-        <button class="unit-tab tab-game ${isGameMode ? 'active' : ''}" onclick="startTypingGame()">
-            ⌨️ JOC D'ESCRIURE (NIV ${currentLevelNumber})
-        </button>
-        <div class="level-group-label">🟢 N1:</div>
-    `;
-    n1.forEach(u => { html += `<button class="unit-tab tab-n1 ${currentUnitId === u.id && !isAllUnitsMode && !isGameMode && !isReadingGameMode ? 'active' : ''}" onclick="switchUnit('${u.id}')">${u.letter}</button>`; });
-
-    html += `<div class="level-group-label">🔵 N2:</div>`;
-    n2.forEach(u => { html += `<button class="unit-tab tab-n2 ${currentUnitId === u.id && !isAllUnitsMode && !isGameMode && !isReadingGameMode ? 'active' : ''}" onclick="switchUnit('${u.id}')">${u.letter}</button>`; });
-
-    html += `
-        <button class="unit-tab btn-all-units ${isAllUnitsMode ? 'active' : ''}" onclick="showAllUnitsForPrint()">
-            📚 TOT EL LLIBRE (PDF A4)
-        </button>
-    `;
-
-    tabsContainer.innerHTML = html;
-}
-
-window.switchUnit = function(unitId) {
-    currentUnitId = unitId;
-    isAllUnitsMode = false;
-    isGameMode = false;
-    isReadingGameMode = false;
-    document.body.classList.remove('game-mode-active');
-    renderUnitTabs();
-    renderCurrentStage();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-};
-
-window.showAllUnitsForPrint = function() {
-    isAllUnitsMode = true;
-    isGameMode = false;
-    isReadingGameMode = false;
-    document.body.classList.remove('game-mode-active');
-    renderUnitTabs();
-    renderCurrentStage();
-};
 
 window.startTypingGame = function() {
     isGameMode = true;
     isReadingGameMode = false;
     isAllUnitsMode = false;
     document.body.classList.add('game-mode-active');
-    renderUnitTabs();
     renderTypingGameStage();
     loadNextGameTarget();
 };
@@ -334,10 +162,17 @@ window.startReadingGame = function() {
     isGameMode = false;
     isAllUnitsMode = false;
     document.body.classList.add('game-mode-active');
-    renderUnitTabs();
     renderReadingGameStage();
     loadNextReadingTarget();
 };
+
+window.goBackToMenu = function() {
+    isGameMode = false;
+    isReadingGameMode = false;
+    isAllUnitsMode = false;
+    document.body.classList.remove('game-mode-active');
+    renderCurrentStage();
+}
 
 function renderCurrentStage() {
     const stageContainer = document.getElementById('mainStage');
@@ -347,151 +182,98 @@ function renderCurrentStage() {
         renderTypingGameStage();
         return;
     }
-
     if (isReadingGameMode) {
         renderReadingGameStage();
         return;
     }
-
-    if (isAllUnitsMode) {
-        let html = renderCoverHTML();
-        unitsData.forEach((unit, index) => {
-            if (!unit.isCover) {
-                html += renderUnitSheetHTML(unit, index);
-            }
-        });
-        stageContainer.innerHTML = html;
-    } else {
-        const unit = unitsData.find(u => u.id === currentUnitId) || unitsData[0];
-        if (unit.isCover) {
-            stageContainer.innerHTML = renderCoverHTML();
-        } else {
-            const index = unitsData.findIndex(u => u.id === currentUnitId);
-            stageContainer.innerHTML = renderUnitSheetHTML(unit, index);
-        }
-    }
+    
+    stageContainer.innerHTML = renderCoverHTML();
 }
 
-// Generar la barra del camí animat (Progress Track Bar)
+// =========================================================================
+// HUD PROGRESS TRACK (BARRA DE CAMÍ VIDEOJOC)
+// =========================================================================
 function renderProgressTrackHTML() {
     const stepCount = totalWordsCompleted % 10;
     const percentage = (stepCount / 10) * 100;
 
     return `
         <div class="progress-track-container">
-            <div class="track-info">
-                <span>🏃 CAMÍ D'EMMA: <strong>${stepCount}/10 passos</strong></span>
-                <span>🏆 NIVELL ${currentLevelNumber}</span>
-            </div>
             <div class="track-bar-bg">
                 <div class="track-bar-fill" style="width: ${percentage}%"></div>
                 <div class="track-mascot" style="left: calc(${percentage}% - 20px)">🦄</div>
-                <div class="track-finish-flag">🏆</div>
-            </div>
-        </div>
-    `;
-}
-
-function getEffectiveDifficulty() {
-    if (currentLevelNumber <= 2) return currentDifficulty || 'facil';
-    if (currentLevelNumber <= 4) return 'mitja';
-    return 'avancat';
-}
-
-// PORTADA SUPER NETTA SENSE SCROLL PER A EMMA
-function renderCoverHTML() {
-    return `
-        <div class="arcade-cover-container">
-            <div class="hero-title-group">
-                <div class="hero-mascot">🦄 🌈 ✨</div>
-                <h1 class="hero-main-title">EL LLIBRE I JOCS DE LECTURA D'EMMA</h1>
-                <div class="hero-sub-ribbon">AQUESTA AVENTURA PERTANY A: <strong>EMMA ⭐</strong></div>
-            </div>
-
-            <div class="main-game-buttons-grid">
-                <button class="arcade-game-card card-reading" onclick="startReadingGame()">
-                    <div class="card-icon">📖</div>
-                    <div class="card-text">
-                        <h2>JOC DE LECTURA</h2>
-                        <p>Llegeix la paraula i troba la imatge!</p>
-                    </div>
-                    <span class="play-pill">🚀 JUGAR A LLEGIR</span>
-                </button>
-
-                <button class="arcade-game-card card-typing" onclick="startTypingGame()">
-                    <div class="card-icon">⌨️</div>
-                    <div class="card-text">
-                        <h2>JOC D'ESCRIURE</h2>
-                        <p>Escriu les lletres amb el teclat!</p>
-                    </div>
-                    <span class="play-pill">🎹 JUGAR A ESCRIURE</span>
-                </button>
-            </div>
-
-            <div class="cover-footer-btn-box">
-                <button class="btn btn-secondary btn-lg" onclick="showAllUnitsForPrint()">
-                    📚 VEURE FITXES DE LECTURA I IMPRIMIR A4 (PDF)
-                </button>
+                <div class="track-finish-flag">🏁</div>
             </div>
         </div>
     `;
 }
 
 // =========================================================================
-// 1. JOC DE LECTURA ("ENDEVINA LA IMATGE")
+// PORTADA (MENU PRINCIPAL VIDEOJOC)
+// =========================================================================
+function renderCoverHTML() {
+    return `
+        <div class="arcade-cover-container">
+            <div class="hero-title-group">
+                <h1 class="hero-main-title" data-text="L'AVENTURA D'EMMA">L'AVENTURA D'EMMA</h1>
+                <div class="hero-sub-ribbon">⭐ PREPARA'T PER JUGAR ⭐</div>
+            </div>
+
+            <div class="main-game-buttons-grid">
+                <button class="arcade-game-card card-reading" onclick="startReadingGame()">
+                    <div class="card-icon-box">📖</div>
+                    <h2>LLEGIR</h2>
+                    <span class="play-pill">PLAY</span>
+                </button>
+
+                <button class="arcade-game-card card-typing" onclick="startTypingGame()">
+                    <div class="card-icon-box">⌨️</div>
+                    <h2>ESCRIURE</h2>
+                    <span class="play-pill">PLAY</span>
+                </button>
+            </div>
+            
+            <div class="stats-board">
+                <span>🏆 NIVELL ACTUAL: ${currentLevelNumber}</span>
+                <span>⭐ PUNTS: ${gameScore}</span>
+            </div>
+        </div>
+    `;
+}
+
+// =========================================================================
+// 1. JOC DE LECTURA 
 // =========================================================================
 function renderReadingGameStage() {
     const stageContainer = document.getElementById('mainStage');
     if (!stageContainer) return;
 
-    const effDiff = getEffectiveDifficulty();
-
     stageContainer.innerHTML = `
         <div class="arcade-game-wrapper">
-            <div class="game-header-bar">
-                <div class="game-title-group">
-                    <ion-icon name="book" style="font-size: 1.8rem; color: var(--accent-orange);"></ion-icon>
-                    <span>JOC DE LECTURA D'EMMA 📖</span>
-                </div>
-                
-                <div class="game-stats-group">
-                    <div class="score-badge badge-lvl">🏆 NIV <strong>${currentLevelNumber}</strong></div>
-                    <div class="score-badge badge-words">🎯 ${totalWordsCompleted % 10}/10</div>
-                    <div class="score-badge badge-pts">⭐ ${gameScore} pts</div>
-                </div>
-
-                <div class="diff-selector">
-                    <button class="diff-btn ${effDiff === 'facil' ? 'active' : ''}" onclick="setDifficulty('facil')">🌱 Fàcil</button>
-                    <button class="diff-btn ${effDiff === 'mitja' ? 'active' : ''}" onclick="setDifficulty('mitja')">⭐ Mitjà</button>
-                    <button class="diff-btn ${effDiff === 'avancat' ? 'active' : ''}" onclick="setDifficulty('avancat')">🚀 Avançat</button>
-                </div>
+            <div class="game-hud-top">
+                <button class="btn-back" onclick="goBackToMenu()">⬅ MENÚ</button>
+                <div class="hud-center">NIVELL ${currentLevelNumber}</div>
+                <div class="hud-score">⭐ ${gameScore}</div>
             </div>
 
             ${renderProgressTrackHTML()}
 
             <div class="reading-game-play-area">
-                <p class="reading-instruction">👀 LLEGEIX LA PARAULA I PREM LA IMATGE CORRECTA:</p>
-                
                 <div class="word-read-wrapper">
-                    <div class="reading-target-word" id="readingTargetWord">PO-MA</div>
-                    <button class="hint-audio-btn" title="Escolta si et quedes atascada" onclick="speakText(currentWordObj.text || currentWordObj.word)">
+                    <div class="reading-target-word" id="readingTargetWord">...</div>
+                    <button class="hint-audio-btn" title="Pista d'àudio" onclick="speakText(currentWordObj.text || currentWordObj.word)">
                         🔊 PISTA
                     </button>
                 </div>
-
                 <div class="image-options-grid" id="imageOptionsGrid"></div>
             </div>
         </div>
-
+        
         <div class="celebration-overlay" id="celebrationModal">
             <div class="celebration-card">
-                <div class="celebration-icon">🏆 🎉 🌟</div>
-                <h2>ENHORABONA EMMA!</h2>
-                <p class="celebration-msg">HAS COMPLETAT 10 PARAULES AMB ÈXIT!</p>
-                <div class="celebration-lvl-badge">PUJES AL NIVELL <span id="newLvlNum">2</span>!</div>
-                <button class="btn btn-primary btn-lg" onclick="closeCelebrationModal()">
-                    🚀 CONTINUAR JUGANT!
-                </button>
+                <h2>NIVELL COMPLETAT!</h2>
+                <div class="celebration-lvl-badge">🏆 NIVELL ${currentLevelNumber} DESBLOQUEJAT</div>
+                <button class="btn-next-level" onclick="closeCelebrationModal()">SEGUENT NIVELL 🚀</button>
             </div>
         </div>
         <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
@@ -500,36 +282,28 @@ function renderReadingGameStage() {
 
 function loadNextReadingTarget() {
     if (!isReadingGameMode) return;
+    ensureShuffledBank();
 
-    const effDiff = getEffectiveDifficulty();
-    const bank = difficultyWordBanks[effDiff] || difficultyWordBanks.facil;
-
-    let availableWords = bank.filter(w => !usedReadingWords.includes(w.word));
-    if (availableWords.length === 0) {
-        usedReadingWords = [];
-        availableWords = bank;
-    }
-
-    const randIndex = Math.floor(Math.random() * availableWords.length);
-    currentWordObj = availableWords[randIndex];
-    usedReadingWords.push(currentWordObj.word);
+    const idx = totalWordsCompleted % 10;
+    currentWordObj = currentLevelShuffledWords[idx];
 
     const targetWordEl = document.getElementById('readingTargetWord');
     const optionsGridEl = document.getElementById('imageOptionsGrid');
-
     if (!targetWordEl || !optionsGridEl) return;
 
     targetWordEl.innerText = currentWordObj.text || currentWordObj.word;
 
-    let options = [currentWordObj];
+    // Obtenim 3 distractors del mateix nivell
+    const effLvl = getEffectiveLevel();
+    let bank = levelWordBanks[effLvl];
     let otherWords = bank.filter(w => w.word !== currentWordObj.word);
-
+    
+    let options = [currentWordObj];
     while (options.length < 4 && otherWords.length > 0) {
         const rIdx = Math.floor(Math.random() * otherWords.length);
         options.push(otherWords[rIdx]);
         otherWords.splice(rIdx, 1);
     }
-
     options.sort(() => Math.random() - 0.5);
 
     optionsGridEl.innerHTML = options.map(opt => `
@@ -550,17 +324,12 @@ window.handleReadingChoice = function(chosenWord, element) {
 
         localStorage.setItem('emma_game_score', gameScore);
         localStorage.setItem('emma_words_completed', totalWordsCompleted);
-
         speakText(`Molt bé! És ${currentWordObj.word}!`);
 
         if (totalWordsCompleted > 0 && totalWordsCompleted % 10 === 0) {
             currentLevelNumber = Math.floor(totalWordsCompleted / 10) + 1;
-            renderUnitTabs();
-            setTimeout(() => {
-                triggerLevelUpCelebration();
-            }, 800);
+            setTimeout(() => triggerLevelUpCelebration(), 800);
         } else {
-            gameTargetIndex++;
             setTimeout(() => {
                 renderReadingGameStage();
                 loadNextReadingTarget();
@@ -569,37 +338,23 @@ window.handleReadingChoice = function(chosenWord, element) {
     } else {
         element.classList.add('wrong');
         playErrorSound();
+        setTimeout(() => element.classList.remove('wrong'), 500);
     }
 };
 
 // =========================================================================
-// 2. JOC D'ESCRIURE EN TECLAT
+// 2. JOC D'ESCRIURE
 // =========================================================================
 function renderTypingGameStage() {
     const stageContainer = document.getElementById('mainStage');
     if (!stageContainer) return;
 
-    const effDiff = getEffectiveDifficulty();
-
     stageContainer.innerHTML = `
         <div class="arcade-game-wrapper">
-            <div class="game-header-bar">
-                <div class="game-title-group">
-                    <ion-icon name="trophy" style="font-size: 1.8rem; color: var(--accent-yellow);"></ion-icon>
-                    <span>JOC D'ESCRIURE D'EMMA 🎹</span>
-                </div>
-                
-                <div class="game-stats-group">
-                    <div class="score-badge badge-lvl">🏆 NIV <strong>${currentLevelNumber}</strong></div>
-                    <div class="score-badge badge-words">🎯 ${totalWordsCompleted % 10}/10</div>
-                    <div class="score-badge badge-pts">⭐ ${gameScore} pts</div>
-                </div>
-
-                <div class="diff-selector">
-                    <button class="diff-btn ${effDiff === 'facil' ? 'active' : ''}" onclick="setDifficulty('facil')">🌱 Fàcil</button>
-                    <button class="diff-btn ${effDiff === 'mitja' ? 'active' : ''}" onclick="setDifficulty('mitja')">⭐ Mitjà</button>
-                    <button class="diff-btn ${effDiff === 'avancat' ? 'active' : ''}" onclick="setDifficulty('avancat')">🚀 Avançat</button>
-                </div>
+            <div class="game-hud-top">
+                <button class="btn-back" onclick="goBackToMenu()">⬅ MENÚ</button>
+                <div class="hud-center">NIVELL ${currentLevelNumber}</div>
+                <div class="hud-score">⭐ ${gameScore}</div>
             </div>
 
             ${renderProgressTrackHTML()}
@@ -607,71 +362,51 @@ function renderTypingGameStage() {
             <div class="game-play-area" id="gamePlayArea">
                 <div class="target-visual-compact">
                     <span id="targetIcon">🍎</span>
-                    <span class="target-text-display" id="targetWordText">PO-MA</span>
                 </div>
-                
                 <div class="typing-boxes" id="typingBoxes"></div>
             </div>
 
             <div class="virtual-keyboard" id="virtualKeyboard">
                 <div class="keyboard-row">
-                    ${['A','B','C','D','E','F','G','H','I'].map(k => `<button class="key-btn" data-key="${k}" onclick="handleVirtualKeyClick('${k}')">${k}</button>`).join('')}
+                    ${['Q','W','E','R','T','Y','U','I','O','P'].map(k => `<button class="key-btn" data-key="${k}" onclick="handleVirtualKeyClick('${k}')">${k}</button>`).join('')}
                 </div>
                 <div class="keyboard-row">
-                    ${['J','K','L','M','N','O','P','Q','R','S'].map(k => `<button class="key-btn" data-key="${k}" onclick="handleVirtualKeyClick('${k}')">${k}</button>`).join('')}
+                    ${['A','S','D','F','G','H','J','K','L','Ç'].map(k => `<button class="key-btn" data-key="${k}" onclick="handleVirtualKeyClick('${k}')">${k}</button>`).join('')}
                 </div>
                 <div class="keyboard-row">
-                    ${['T','U','V','W','X','Y','Z'].map(k => `<button class="key-btn" data-key="${k}" onclick="handleVirtualKeyClick('${k}')">${k}</button>`).join('')}
+                    ${['Z','X','C','V','B','N','M'].map(k => `<button class="key-btn" data-key="${k}" onclick="handleVirtualKeyClick('${k}')">${k}</button>`).join('')}
                 </div>
             </div>
         </div>
 
         <div class="celebration-overlay" id="celebrationModal">
             <div class="celebration-card">
-                <div class="celebration-icon">🏆 🎉 🌟</div>
-                <h2>ENHORABONA EMMA!</h2>
-                <p class="celebration-msg">HAS COMPLETAT 10 PARAULES AMB ÈXIT!</p>
-                <div class="celebration-lvl-badge">PUJES AL NIVELL <span id="newLvlNum">2</span>!</div>
-                <button class="btn btn-primary btn-lg" onclick="closeCelebrationModal()">
-                    🚀 CONTINUAR JUGANT!
-                </button>
+                <h2>NIVELL COMPLETAT!</h2>
+                <div class="celebration-lvl-badge">🏆 NIVELL ${currentLevelNumber} DESBLOQUEJAT</div>
+                <button class="btn-next-level" onclick="closeCelebrationModal()">SEGUENT NIVELL 🚀</button>
             </div>
         </div>
         <canvas id="confettiCanvas" class="confetti-canvas"></canvas>
     `;
-
-    loadNextGameTarget();
 }
-
-window.setDifficulty = function(diff) {
-    currentDifficulty = diff;
-    if (isGameMode) renderTypingGameStage();
-    if (isReadingGameMode) {
-        renderReadingGameStage();
-        loadNextReadingTarget();
-    }
-};
 
 function loadNextGameTarget() {
     if (!isGameMode) return;
+    ensureShuffledBank();
 
-    const effDiff = getEffectiveDifficulty();
-    const bank = difficultyWordBanks[effDiff] || difficultyWordBanks.facil;
-    currentWordObj = bank[gameTargetIndex % bank.length];
+    const idx = totalWordsCompleted % 10;
+    currentWordObj = currentLevelShuffledWords[idx];
     typedChars = [];
 
     const targetIconEl = document.getElementById('targetIcon');
-    const targetWordTextEl = document.getElementById('targetWordText');
     const typingBoxesEl = document.getElementById('typingBoxes');
-
-    if (!targetIconEl || !targetWordTextEl || !typingBoxesEl) return;
+    if (!targetIconEl || !typingBoxesEl) return;
 
     targetIconEl.innerText = currentWordObj.icon;
-    targetWordTextEl.innerText = currentWordObj.text || currentWordObj.word;
 
     let boxesHtml = '';
     for (let i = 0; i < currentWordObj.word.length; i++) {
-        boxesHtml += `<div class="char-box ${i === 0 ? 'current-target' : ''}" id="box-${i}">_</div>`;
+        boxesHtml += `<div class="char-box ${i === 0 ? 'current-target' : ''}" id="box-${i}"></div>`;
     }
     typingBoxesEl.innerHTML = boxesHtml;
 
@@ -681,15 +416,12 @@ function loadNextGameTarget() {
 
 function highlightNextKey() {
     if (!currentWordObj) return;
-
     document.querySelectorAll('.key-btn').forEach(btn => btn.classList.remove('highlighted'));
 
     if (typedChars.length < currentWordObj.word.length) {
         const nextChar = currentWordObj.word[typedChars.length];
         const keyBtn = document.querySelector(`.key-btn[data-key="${nextChar}"]`);
-        if (keyBtn) {
-            keyBtn.classList.add('highlighted');
-        }
+        if (keyBtn) keyBtn.classList.add('highlighted');
     }
 }
 
@@ -701,7 +433,7 @@ function setupPhysicalKeyboardListener() {
     window.addEventListener('keydown', (e) => {
         if (!isGameMode) return;
         const key = e.key.toUpperCase();
-        if (/^[A-Z]$/.test(key)) {
+        if (/^[A-ZÇ]$/.test(key)) {
             processTypedChar(key);
         }
     });
@@ -709,7 +441,6 @@ function setupPhysicalKeyboardListener() {
 
 function processTypedChar(char) {
     if (!isGameMode || !currentWordObj) return;
-
     const targetChar = currentWordObj.word[typedChars.length];
 
     if (char === targetChar) {
@@ -720,13 +451,11 @@ function processTypedChar(char) {
             currentBox.classList.remove('current-target');
             currentBox.classList.add('filled');
         }
-
         typedChars.push(char);
 
         if (typedChars.length === currentWordObj.word.length) {
             gameScore += 10;
             totalWordsCompleted++;
-
             localStorage.setItem('emma_game_score', gameScore);
             localStorage.setItem('emma_words_completed', totalWordsCompleted);
 
@@ -735,15 +464,9 @@ function processTypedChar(char) {
 
             if (totalWordsCompleted > 0 && totalWordsCompleted % 10 === 0) {
                 currentLevelNumber = Math.floor(totalWordsCompleted / 10) + 1;
-                renderUnitTabs();
-                setTimeout(() => {
-                    triggerLevelUpCelebration();
-                }, 800);
+                setTimeout(() => triggerLevelUpCelebration(), 800);
             } else {
-                gameTargetIndex++;
-                setTimeout(() => {
-                    renderTypingGameStage();
-                }, 1200);
+                setTimeout(() => renderTypingGameStage(), 1200);
             }
         } else {
             const nextBox = document.getElementById(`box-${typedChars.length}`);
@@ -752,16 +475,21 @@ function processTypedChar(char) {
         }
     } else {
         playErrorSound();
+        const keyBtn = document.querySelector(`.key-btn[data-key="${char}"]`);
+        if(keyBtn) {
+            keyBtn.classList.add('error-shake');
+            setTimeout(() => keyBtn.classList.remove('error-shake'), 300);
+        }
     }
 }
 
+// =========================================================================
+// CELEBRACIÓ I SISTEMA D'AUDIO
+// =========================================================================
 function triggerLevelUpCelebration() {
     playFanfareSound();
     const modal = document.getElementById('celebrationModal');
-    const newLvlNum = document.getElementById('newLvlNum');
-    if (newLvlNum) newLvlNum.innerText = currentLevelNumber;
     if (modal) modal.classList.add('show');
-
     startConfettiAnimation();
 }
 
@@ -769,302 +497,67 @@ window.closeCelebrationModal = function() {
     const modal = document.getElementById('celebrationModal');
     if (modal) modal.classList.remove('show');
     stopConfettiAnimation();
-    gameTargetIndex++;
-    if (isGameMode) renderTypingGameStage();
+    if (isGameMode) {
+        renderTypingGameStage();
+        loadNextGameTarget();
+    }
     if (isReadingGameMode) {
         renderReadingGameStage();
         loadNextReadingTarget();
     }
 };
 
-// ANIMACIÓ CONFETI
+window.speakText = function(text) {
+    if (!('speechSynthesis' in window)) return;
+    window.speechSynthesis.cancel();
+    const cleanSpeechText = text.replace(/-/g, '').toLowerCase();
+    const utterance = new SpeechSynthesisUtterance(cleanSpeechText);
+    utterance.lang = 'ca-ES';
+    utterance.rate = 0.85;
+    window.speechSynthesis.speak(utterance);
+};
+
+// AUDIO SYNTH (Bàsic, sense fitxers externs)
+function playPopSound() {
+    try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); const osc = ctx.createOscillator(); const gain = ctx.createGain(); osc.frequency.setValueAtTime(400, ctx.currentTime); osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.1); gain.gain.setValueAtTime(0.3, ctx.currentTime); gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.1); osc.connect(gain); gain.connect(ctx.destination); osc.start(); osc.stop(ctx.currentTime + 0.1); } catch(e){}
+}
+function playSuccessSound() {
+    try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => { const osc = ctx.createOscillator(); const gain = ctx.createGain(); osc.type = 'triangle'; osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.1); gain.gain.setValueAtTime(0.3, ctx.currentTime + i * 0.1); gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + i * 0.1 + 0.2); osc.connect(gain); gain.connect(ctx.destination); osc.start(ctx.currentTime + i * 0.1); osc.stop(ctx.currentTime + i * 0.1 + 0.2); }); } catch(e){}
+}
+function playFanfareSound() {
+    try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); [440, 554.37, 659.25, 880, 1046.50].forEach((freq, i) => { const osc = ctx.createOscillator(); const gain = ctx.createGain(); osc.type = 'square'; osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.12); gain.gain.setValueAtTime(0.2, ctx.currentTime + i * 0.12); gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + i * 0.12 + 0.3); osc.connect(gain); gain.connect(ctx.destination); osc.start(ctx.currentTime + i * 0.12); osc.stop(ctx.currentTime + i * 0.12 + 0.3); }); } catch(e){}
+}
+function playErrorSound() {
+    try { const ctx = new (window.AudioContext || window.webkitAudioContext)(); const osc = ctx.createOscillator(); const gain = ctx.createGain(); osc.type = 'sawtooth'; osc.frequency.setValueAtTime(180, ctx.currentTime); gain.gain.setValueAtTime(0.15, ctx.currentTime); gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.15); osc.connect(gain); gain.connect(ctx.destination); osc.start(); osc.stop(ctx.currentTime + 0.15); } catch(e){}
+}
+
+// CONFETI
 let confettiActive = false;
 let confettiParticles = [];
-
 function startConfettiAnimation() {
     const canvas = document.getElementById('confettiCanvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-
-    confettiActive = true;
-    confettiParticles = [];
+    canvas.width = window.innerWidth; canvas.height = window.innerHeight;
+    confettiActive = true; confettiParticles = [];
     const colors = ['#FF5964', '#35A7FF', '#FFD166', '#06D6A0', '#9B5DE5', '#FF9F1C'];
-
-    for (let i = 0; i < 120; i++) {
-        confettiParticles.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height - canvas.height,
-            size: Math.random() * 12 + 6,
-            color: colors[Math.floor(Math.random() * colors.length)],
-            vy: Math.random() * 3 + 2,
-            vx: Math.random() * 2 - 1,
-            rot: Math.random() * 360
-        });
+    for (let i = 0; i < 150; i++) {
+        confettiParticles.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height - canvas.height, size: Math.random() * 12 + 8, color: colors[Math.floor(Math.random() * colors.length)], vy: Math.random() * 4 + 2, vx: Math.random() * 2 - 1, rot: Math.random() * 360 });
     }
-
     function loop() {
         if (!confettiActive) return;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-
         confettiParticles.forEach(p => {
-            p.y += p.vy;
-            p.x += p.vx;
-            p.rot += 3;
-
-            ctx.save();
-            ctx.translate(p.x, p.y);
-            ctx.rotate((p.rot * Math.PI) / 180);
-            ctx.fillStyle = p.color;
-            ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
-            ctx.restore();
-
-            if (p.y > canvas.height) {
-                p.y = -20;
-                p.x = Math.random() * canvas.width;
-            }
+            p.y += p.vy; p.x += p.vx; p.rot += 3;
+            ctx.save(); ctx.translate(p.x, p.y); ctx.rotate((p.rot * Math.PI) / 180); ctx.fillStyle = p.color; ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size); ctx.restore();
+            if (p.y > canvas.height) { p.y = -20; p.x = Math.random() * canvas.width; }
         });
-
         requestAnimationFrame(loop);
     }
     loop();
 }
-
 function stopConfettiAnimation() {
     confettiActive = false;
     const canvas = document.getElementById('confettiCanvas');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-    }
+    if (canvas) canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
 }
-
-// SONS SYNTH
-function playPopSound() {
-    try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(400, ctx.currentTime);
-        osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.1);
-        gain.gain.setValueAtTime(0.3, ctx.currentTime);
-        gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.1);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start();
-        osc.stop(ctx.currentTime + 0.1);
-    } catch(e){}
-}
-
-function playSuccessSound() {
-    try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const notes = [523.25, 659.25, 783.99, 1046.50];
-        notes.forEach((freq, i) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.type = 'triangle';
-            osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.1);
-            gain.gain.setValueAtTime(0.3, ctx.currentTime + i * 0.1);
-            gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + i * 0.1 + 0.2);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            osc.start(ctx.currentTime + i * 0.1);
-            osc.stop(ctx.currentTime + i * 0.1 + 0.2);
-        });
-    } catch(e){}
-}
-
-function playFanfareSound() {
-    try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const notes = [440, 554.37, 659.25, 880, 1046.50];
-        notes.forEach((freq, i) => {
-            const osc = ctx.createOscillator();
-            const gain = ctx.createGain();
-            osc.type = 'square';
-            osc.frequency.setValueAtTime(freq, ctx.currentTime + i * 0.12);
-            gain.gain.setValueAtTime(0.2, ctx.currentTime + i * 0.12);
-            gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + i * 0.12 + 0.3);
-            osc.connect(gain);
-            gain.connect(ctx.destination);
-            osc.start(ctx.currentTime + i * 0.12);
-            osc.stop(ctx.currentTime + i * 0.12 + 0.3);
-        });
-    } catch(e){}
-}
-
-function playErrorSound() {
-    try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sawtooth';
-        osc.frequency.setValueAtTime(180, ctx.currentTime);
-        gain.gain.setValueAtTime(0.15, ctx.currentTime);
-        gain.gain.linearRampToValueAtTime(0.01, ctx.currentTime + 0.15);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start();
-        osc.stop(ctx.currentTime + 0.15);
-    } catch(e){}
-}
-
-function renderUnitSheetHTML(unit, pageNum) {
-    const savedStars = userStars[unit.id] || 0;
-    
-    let levelBadgeText = unit.level === 1 ? '🟢 NIVELL 1: ÚNICA' : '🔵 NIVELL 2: COMBINADA';
-    let levelBadgeClass = unit.level === 1 ? 'badge-n1' : 'badge-n2';
-    let levelBgClass = unit.level === 1 ? 'bg-n1' : 'bg-n2';
-
-    return `
-        <div class="a4-page" id="sheet-${unit.id}">
-            <div class="sheet-header">
-                <div class="letter-badge-box">
-                    <div class="letter-circle ${levelBgClass}">${unit.letter}</div>
-                    <div class="sheet-title-group">
-                        <h2>${unit.title}</h2>
-                        <p>${unit.subtitle}</p>
-                    </div>
-                </div>
-                <div class="level-indicator-badge ${levelBadgeClass}">
-                    ${levelBadgeText}
-                </div>
-            </div>
-
-            <div class="syllable-section">
-                <div class="section-label">
-                    <ion-icon name="color-palette-outline"></ion-icon> 1. SÍLABES ORDENADES
-                </div>
-                <div class="syllables-grid">
-                    ${unit.syllables.map(syl => `
-                        <div class="syllable-card ${syl.cardClass}" onclick="speakText('${syl.text}', this)">
-                            <div class="syllable-text">${syl.text}</div>
-                            <div class="syllable-combination">${syl.comb}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-
-            ${unit.shuffledLines ? `
-                <div class="shuffled-section">
-                    <div class="section-label" style="color: #7C3AED;">
-                        <ion-icon name="extension-puzzle-outline"></ion-icon> 2. SÍLABES DESORDENADES (ÀGILITAT LECTORA)
-                    </div>
-                    <div class="shuffled-lines-container">
-                        ${unit.shuffledLines.map((line, lIdx) => `
-                            <div class="shuffled-line">
-                                <span class="line-num">${lIdx + 1}</span>
-                                ${line.map(syl => `
-                                    <span class="shuffled-syl-badge" onclick="speakText('${syl}', this)">${syl}</span>
-                                `).join('<span class="shuffled-sep">•</span>')}
-                            </div>
-                        `).join('')}
-                    </div>
-                </div>
-            ` : ''}
-
-            <div class="words-section">
-                <div class="section-label">
-                    <ion-icon name="shapes-outline"></ion-icon> 3. LLEGEIX LES PARAULES
-                </div>
-                <div class="words-grid">
-                    ${unit.words.map(w => `
-                        <div class="word-card" onclick="speakText('${w.fullText}', this)">
-                            <div class="word-syllables">
-                                ${w.parts.map((p, idx) => `
-                                    <span class="syl-part">${p}</span>${idx < w.parts.length - 1 ? '<span class="syl-dash">-</span>' : ''}
-                                `).join('')}
-                            </div>
-                            <div class="word-visual">${w.icon}</div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-
-            <div class="sentences-section">
-                <div class="section-label" style="color: #B45309;">
-                    <ion-icon name="rocket-outline"></ion-icon> 4. LLEGEIX LES FRASES!
-                </div>
-                <div class="sentence-list">
-                    ${unit.sentences.map((st, i) => `
-                        <div class="sentence-item" onclick="speakText('${st.cleanText}', this)">
-                            <div class="sentence-num">${i + 1}</div>
-                            <div class="sentence-words-container">
-                                ${st.words.map(w => `
-                                    <div class="word-box">
-                                        ${w.syls.map((syl, idx) => `
-                                            <span>${syl}</span>${idx < w.syls.length - 1 ? '<span class="word-syl-dash">-</span>' : ''}
-                                        `).join('')}
-                                    </div>
-                                `).join('')}
-                            </div>
-                        </div>
-                    `).join('')}
-                </div>
-            </div>
-
-            <div class="sheet-footer">
-                <div class="star-rating">
-                    <span>Pinta les estrelles al llegir el full!</span>
-                    <div class="stars-group">
-                        ${[1, 2, 3, 4, 5].map(starIdx => `
-                            <ion-icon name="${starIdx <= savedStars ? 'star' : 'star-outline'}" 
-                                      class="star-icon ${starIdx <= savedStars ? 'filled' : ''}" 
-                                      onclick="toggleStar('${unit.id}', ${starIdx})"></ion-icon>
-                        `).join('')}
-                    </div>
-                </div>
-                <div class="page-number">Pàgina ${pageNum}</div>
-            </div>
-        </div>
-    `;
-}
-
-window.speakText = function(text, element) {
-    if (!('speechSynthesis' in window)) return;
-
-    if (element) {
-        element.classList.add('active-play');
-        setTimeout(() => element.classList.remove('active-play'), 600);
-    }
-
-    window.speechSynthesis.cancel();
-    const cleanSpeechText = text.replace(/-/g, '').toLowerCase();
-
-    const utterance = new SpeechSynthesisUtterance(cleanSpeechText);
-    utterance.lang = 'ca-ES';
-    utterance.rate = 0.85;
-
-    showAudioToast(`🔊 Llegint: "${text}"`);
-    window.speechSynthesis.speak(utterance);
-};
-
-function showAudioToast(msg) {
-    let toast = document.getElementById('audioToast');
-    if (!toast) {
-        toast = document.createElement('div');
-        toast.id = 'audioToast';
-        toast.className = 'audio-toast';
-        document.body.appendChild(toast);
-    }
-    toast.innerHTML = `<ion-icon name="volume-high-outline"></ion-icon> <span>${msg}</span>`;
-    toast.classList.add('show');
-
-    clearTimeout(window.toastTimer);
-    window.toastTimer = setTimeout(() => {
-        toast.classList.remove('show');
-    }, 2500);
-}
-
-window.toggleStar = function(unitId, count) {
-    userStars[unitId] = count;
-    localStorage.setItem('emma_stars', JSON.stringify(userStars));
-    renderCurrentStage();
-};
-
-window.printApp = function() {
-    window.print();
-};
