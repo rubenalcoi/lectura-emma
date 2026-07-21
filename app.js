@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LLIBRE DE LECTURA D'EMMA - JOC DE LECTURA AMB DIFICULTAT PROGRESSIVA I SENSE REPETICIONS
+   LLIBRE DE LECTURA D'EMMA - PORTADA SUPER NETTA SENSE SCROLL (FIT-TO-SCREEN)
    ========================================================================== */
 
 const unitsData = [
@@ -200,16 +200,14 @@ let userStars = JSON.parse(localStorage.getItem('emma_stars') || '{}');
 // Estat del Joc
 let gameScore = parseInt(localStorage.getItem('emma_game_score') || '0');
 let totalWordsCompleted = parseInt(localStorage.getItem('emma_words_completed') || '0');
-let currentLevelNumber = Math.floor(totalWordsCompleted / 10) + 1; // PUJA DE NIVELL CADA 10 PARAULES
+let currentLevelNumber = Math.floor(totalWordsCompleted / 10) + 1;
 let currentDifficulty = 'facil';
 let gameTargetIndex = 0;
 let currentWordObj = null;
 let typedChars = [];
-
-// Historial de paraules usades per evitar repeticions consecutives
 let usedReadingWords = [];
 
-// AMPLIACIÓ DE BANCS DE PARAULES PER A DIFICULTAT I VARIETAT REAL
+// BANCS DE PARAULES PER A DIFICULTAT PROGRESSIVA
 const difficultyWordBanks = {
     facil: [
         { word: 'POMA', icon: '🍎', text: 'PO-MA' },
@@ -394,11 +392,49 @@ function renderProgressTrackHTML() {
     `;
 }
 
-// DETERMINAR LA DIFICULTAT AUTOMÀTICA PER NIVELL DE JOC
 function getEffectiveDifficulty() {
     if (currentLevelNumber <= 2) return currentDifficulty || 'facil';
     if (currentLevelNumber <= 4) return 'mitja';
     return 'avancat';
+}
+
+// PORTADA SUPER NETTA SENSE SCROLL PER A EMMA
+function renderCoverHTML() {
+    return `
+        <div class="arcade-cover-container">
+            <div class="hero-title-group">
+                <div class="hero-mascot">🦄 🌈 ✨</div>
+                <h1 class="hero-main-title">EL LLIBRE I JOCS DE LECTURA D'EMMA</h1>
+                <div class="hero-sub-ribbon">AQUESTA AVENTURA PERTANY A: <strong>EMMA ⭐</strong></div>
+            </div>
+
+            <div class="main-game-buttons-grid">
+                <button class="arcade-game-card card-reading" onclick="startReadingGame()">
+                    <div class="card-icon">📖</div>
+                    <div class="card-text">
+                        <h2>JOC DE LECTURA</h2>
+                        <p>Llegeix la paraula i troba la imatge!</p>
+                    </div>
+                    <span class="play-pill">🚀 JUGAR A LLEGIR</span>
+                </button>
+
+                <button class="arcade-game-card card-typing" onclick="startTypingGame()">
+                    <div class="card-icon">⌨️</div>
+                    <div class="card-text">
+                        <h2>JOC D'ESCRIURE</h2>
+                        <p>Escriu les lletres amb el teclat!</p>
+                    </div>
+                    <span class="play-pill">🎹 JUGAR A ESCRIURE</span>
+                </button>
+            </div>
+
+            <div class="cover-footer-btn-box">
+                <button class="btn btn-secondary btn-lg" onclick="showAllUnitsForPrint()">
+                    📚 VEURE FITXES DE LECTURA I IMPRIMIR A4 (PDF)
+                </button>
+            </div>
+        </div>
+    `;
 }
 
 // =========================================================================
@@ -468,14 +504,12 @@ function loadNextReadingTarget() {
     const effDiff = getEffectiveDifficulty();
     const bank = difficultyWordBanks[effDiff] || difficultyWordBanks.facil;
 
-    // Filtrar per a no repetir les últimes paraules jugades
     let availableWords = bank.filter(w => !usedReadingWords.includes(w.word));
     if (availableWords.length === 0) {
         usedReadingWords = [];
         availableWords = bank;
     }
 
-    // Triar una paraula a l'atzar del banc actiu
     const randIndex = Math.floor(Math.random() * availableWords.length);
     currentWordObj = availableWords[randIndex];
     usedReadingWords.push(currentWordObj.word);
@@ -503,8 +537,6 @@ function loadNextReadingTarget() {
             <div class="option-icon">${opt.icon}</div>
         </div>
     `).join('');
-
-    // SENSE ÀUDIO AUTOMÀTIC PER A QUE EMMA LLEGEIXA
 }
 
 window.handleReadingChoice = function(chosenWord, element) {
@@ -878,62 +910,6 @@ function playErrorSound() {
         osc.start();
         osc.stop(ctx.currentTime + 0.15);
     } catch(e){}
-}
-
-function renderCoverHTML() {
-    return `
-        <div class="a4-page cover-page pretty-cover">
-            <div class="cover-header-decor">
-                <span class="star-badge-glow">⭐ EL MEU PRIMER LLIBRE ⭐</span>
-            </div>
-            
-            <div class="cover-hero-box">
-                <div class="cover-main-icon">🦄 🌈 📖</div>
-                <h1 class="cover-hero-title">EL LLIBRE DE LECTURA D'EMMA</h1>
-                <div class="cover-name-ribbon">
-                    <span>AQUEST LLIBRE PERTANY A:</span>
-                    <strong class="student-name">EMMA ✨</strong>
-                </div>
-            </div>
-
-            <!-- TARGETES D'ACCÉS DIRECTE ALS JOCS A LA PORTADA -->
-            <div class="cover-games-shortcuts-grid">
-                <div class="game-shortcut-card card-reading-shortcut" onclick="startReadingGame()">
-                    <div class="shortcut-icon">📖</div>
-                    <div class="shortcut-info">
-                        <h3>JOC DE LECTURA</h3>
-                        <p>Llegeix la paraula i troba la imatge correcta!</p>
-                    </div>
-                    <button class="btn btn-shortcut-reading">🚀 JUGAR A LLEGIR</button>
-                </div>
-
-                <div class="game-shortcut-card card-typing-shortcut" onclick="startTypingGame()">
-                    <div class="shortcut-icon">🎹</div>
-                    <div class="shortcut-info">
-                        <h3>JOC D'ESCRIURE</h3>
-                        <p>Practica les síl·labes escrivint en el teclat!</p>
-                    </div>
-                    <button class="btn btn-shortcut-typing">⌨️ JUGAR A ESCRIURE</button>
-                </div>
-            </div>
-
-            <div class="cover-levels-grid">
-                <div class="cover-level-card card-n1">
-                    <span class="lvl-tag">🟢 NIVELL 1</span>
-                    <p>Consonants Inicials Úniques (M, P, L, T)</p>
-                </div>
-                <div class="cover-level-card card-n2">
-                    <span class="lvl-tag">🔵 NIVELL 2</span>
-                    <p>Consonants Inicials Combinades (PO-MA...)</p>
-                </div>
-            </div>
-
-            <div class="cover-footer-decor">
-                <div class="footer-stickers">🎈 🎨 🚀 🐱 🍎 🧸</div>
-                <p><strong>Lletra MAJÚSCULA | Valencià</strong></p>
-            </div>
-        </div>
-    `;
 }
 
 function renderUnitSheetHTML(unit, pageNum) {

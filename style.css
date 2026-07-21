@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LLIBRE DE LECTURA D'EMMA - VIDEOJOC COMPACTE SENSE SCROLL (FIT-TO-VIEWPORT)
+   LLIBRE DE LECTURA D'EMMA - PORTADA I JOCS SENSE SCROLL (FIT-TO-VIEWPORT)
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap');
@@ -55,7 +55,7 @@ body.game-mode-active {
 
 .top-navbar {
     background: white;
-    padding: 0.6rem 1.5rem;
+    padding: 0.5rem 1.5rem;
     box-shadow: var(--shadow-sm);
     display: flex;
     justify-content: space-between;
@@ -71,19 +71,19 @@ body.game-mode-active {
     align-items: center;
     gap: 0.6rem;
     font-family: var(--font-reading);
-    font-size: 1.4rem;
+    font-size: 1.35rem;
     color: var(--primary);
 }
 
-.brand-title ion-icon { font-size: 1.8rem; color: var(--accent-yellow); }
+.brand-title ion-icon { font-size: 1.7rem; color: var(--accent-yellow); }
 
 .nav-controls { display: flex; gap: 0.8rem; align-items: center; }
 
 .btn {
     font-family: var(--font-ui);
     font-weight: 700;
-    font-size: 0.9rem;
-    padding: 0.5rem 1.1rem;
+    font-size: 0.85rem;
+    padding: 0.45rem 1rem;
     border-radius: var(--radius-sm);
     border: none;
     cursor: pointer;
@@ -100,11 +100,11 @@ body.game-mode-active {
 .btn-secondary:hover { background-color: #2692E6; transform: translateY(-2px); }
 .btn-game { background-color: var(--accent-purple); color: white; }
 .btn-game:hover { background-color: #8B46D2; transform: translateY(-2px); }
-.btn-lg { font-size: 1.2rem; padding: 0.8rem 2rem; border-radius: 50px; }
+.btn-lg { font-size: 1.1rem; padding: 0.75rem 1.8rem; border-radius: 50px; }
 
 .unit-selector-bar {
     background: white;
-    padding: 0.5rem 1.5rem;
+    padding: 0.4rem 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.4rem;
@@ -124,8 +124,8 @@ body.game-mode-active {
 
 .unit-tab {
     font-family: var(--font-reading);
-    font-size: 0.9rem;
-    padding: 0.35rem 0.8rem;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.75rem;
     border-radius: 50px;
     background: #F0F4FC;
     color: var(--text-dark);
@@ -162,6 +162,118 @@ body.game-mode-active {
     align-items: center;
     overflow: hidden;
 }
+
+/* PORTADA PRINCIPAL 100% ENCAIXADA SENSE SCROLL */
+.arcade-cover-container {
+    background: white;
+    width: 100%;
+    max-width: 900px;
+    height: calc(100vh - 120px);
+    max-height: calc(100vh - 120px);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    border: 5px solid var(--secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    background: radial-gradient(circle at top left, #FFFDF0 0%, #F4F8FF 60%, #FFF5F7 100%);
+}
+
+.hero-title-group { display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+.hero-mascot { font-size: 3.8rem; animation: floatMascot 2s infinite alternate; }
+
+@keyframes floatMascot {
+    from { transform: translateY(0); }
+    to { transform: translateY(-8px); }
+}
+
+.hero-main-title {
+    font-family: var(--font-reading);
+    font-size: 2.2rem;
+    color: var(--primary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.hero-sub-ribbon {
+    background: #EBF5FF;
+    border: 2px solid var(--secondary);
+    padding: 0.4rem 1.2rem;
+    border-radius: 50px;
+    font-family: var(--font-reading);
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+.hero-sub-ribbon strong { color: var(--secondary); }
+
+.main-game-buttons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    width: 100%;
+    margin: 0.5rem 0;
+}
+
+.arcade-game-card {
+    background: white;
+    border-radius: var(--radius-md);
+    padding: 1.2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    border: 4px solid #E2E8F0;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 8px 0 #CBD5E1;
+}
+
+.arcade-game-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 0 #CBD5E1;
+}
+
+.arcade-game-card:active {
+    transform: translateY(4px);
+    box-shadow: 0 0 0 transparent;
+}
+
+.card-reading { border-color: var(--accent-orange); background: #FFFDF5; }
+.card-typing { border-color: var(--accent-pink); background: #FFF5FB; }
+
+.card-icon { font-size: 3.5rem; }
+
+.card-text h2 {
+    font-family: var(--font-reading);
+    font-size: 1.4rem;
+    color: var(--text-dark);
+}
+
+.card-text p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.play-pill {
+    font-family: var(--font-reading);
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 0.5rem 1.4rem;
+    border-radius: 50px;
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.card-reading .play-pill { background: var(--accent-orange); }
+.card-typing .play-pill { background: var(--accent-pink); }
+
+.cover-footer-btn-box { margin-top: 0.2rem; }
 
 /* ARCADE GAME WRAPPER */
 .arcade-game-wrapper {
@@ -490,42 +602,6 @@ body.game-mode-active {
     animation: glowKey 0.8s infinite alternate;
 }
 
-/* DRECERES DE JOCS A LA PORTADA */
-.cover-games-shortcuts-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin: 1.2rem 0;
-}
-
-.game-shortcut-card {
-    background: white;
-    border-radius: var(--radius-md);
-    padding: 1.2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.6rem;
-    border: 3px solid #E2E8F0;
-    box-shadow: var(--shadow-md);
-    cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-.game-shortcut-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
-
-.card-reading-shortcut { border-color: var(--accent-orange); background: #FFFDF5; }
-.card-typing-shortcut { border-color: var(--accent-pink); background: #FFF5FB; }
-
-.shortcut-icon { font-size: 3.5rem; }
-
-.shortcut-info h3 { font-family: var(--font-reading); font-size: 1.3rem; color: var(--text-dark); }
-.shortcut-info p { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; }
-
-.btn-shortcut-reading { background: var(--accent-orange); color: white; border: none; font-family: var(--font-reading); border-radius: 50px; font-size: 1.1rem; }
-.btn-shortcut-typing { background: var(--accent-pink); color: white; border: none; font-family: var(--font-reading); border-radius: 50px; font-size: 1.1rem; }
-
 /* CELEBRACIÓ MODAL */
 .celebration-overlay {
     position: fixed;
@@ -614,93 +690,6 @@ body.game-mode-active {
     position: relative;
     overflow: hidden;
 }
-
-.cover-header-decor { margin-bottom: 0.5rem; }
-
-.star-badge-glow {
-    background: var(--accent-yellow);
-    color: var(--text-dark);
-    font-family: var(--font-reading);
-    font-size: 1.3rem;
-    font-weight: 700;
-    padding: 0.5rem 1.8rem;
-    border-radius: 50px;
-    box-shadow: 0 4px 12px rgba(255, 209, 102, 0.4);
-    letter-spacing: 2px;
-    display: inline-block;
-}
-
-.cover-hero-box {
-    background: white;
-    padding: 1.8rem 1.5rem;
-    border-radius: var(--radius-md);
-    border: 4px dashed var(--secondary);
-    box-shadow: 0 8px 24px rgba(53, 167, 255, 0.1);
-    margin: 0.8rem 0;
-}
-
-.cover-main-icon { font-size: 5rem; margin-bottom: 0.5rem; }
-
-.cover-hero-title {
-    font-family: var(--font-reading);
-    font-size: 2.8rem;
-    color: var(--primary);
-    line-height: 1.15;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 1rem;
-}
-
-.cover-name-ribbon {
-    background: #EBF5FF;
-    border: 2px solid var(--secondary);
-    border-radius: var(--radius-sm);
-    padding: 0.6rem 1.5rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.8rem;
-    font-family: var(--font-reading);
-    font-size: 1.2rem;
-    color: var(--text-dark);
-}
-
-.student-name {
-    font-size: 1.9rem;
-    color: var(--secondary);
-    text-decoration: underline dotted var(--accent-yellow);
-}
-
-.cover-levels-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-    margin: 1rem 0;
-}
-
-.cover-level-card {
-    background: white;
-    border-radius: var(--radius-sm);
-    padding: 0.8rem;
-    text-align: left;
-    border: 2px solid #E2E8F0;
-}
-
-.cover-level-card p { font-size: 0.85rem; color: var(--text-muted); font-weight: 600; margin-top: 0.3rem; }
-
-.lvl-tag {
-    font-family: var(--font-reading);
-    font-size: 0.95rem;
-    font-weight: bold;
-    padding: 0.2rem 0.6rem;
-    border-radius: 6px;
-    display: inline-block;
-}
-
-.card-n1 .lvl-tag { background: #E6F9F3; color: #007A5E; }
-.card-n2 .lvl-tag { background: #EBF5FF; color: #0056B3; }
-
-.cover-footer-decor { border-top: 3px dashed #CBD5E1; padding-top: 0.8rem; }
-.footer-stickers { font-size: 2.2rem; margin-bottom: 0.3rem; word-spacing: 1rem; }
 
 .sheet-header {
     display: flex;
@@ -1005,7 +994,7 @@ body.game-mode-active {
 }
 
 @media print {
-    .no-print, .top-navbar, .unit-selector-bar, .audio-toast, button, .game-container, .arcade-game-wrapper, .celebration-overlay {
+    .no-print, .top-navbar, .unit-selector-bar, .audio-toast, button, .game-container, .arcade-game-wrapper, .arcade-cover-container, .celebration-overlay {
         display: none !important;
     }
 
