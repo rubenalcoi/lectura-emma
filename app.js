@@ -503,6 +503,29 @@ function processTypedChar(char) {
 // =========================================================================
 // CELEBRACIÓ I SISTEMA D'AUDIO
 // =========================================================================
+
+let preferredVoice = null;
+function setBestVoice() {
+    if (!('speechSynthesis' in window)) return;
+    const voices = window.speechSynthesis.getVoices();
+    // Busquem veus en valencià/català
+    let caVoices = voices.filter(v => v.lang.startsWith('ca'));
+    if (caVoices.length > 0) {
+        // Intentem agafar la més "natural" (Navegadors moderns com Edge tenen 'Natural', Chrome té 'Google')
+        preferredVoice = caVoices.find(v => 
+            v.name.toLowerCase().includes('natural') || 
+            v.name.toLowerCase().includes('google') ||
+            v.name.toLowerCase().includes('online') ||
+            v.name.toLowerCase().includes('premium')
+        ) || caVoices[0];
+    }
+}
+
+if ('speechSynthesis' in window) {
+    window.speechSynthesis.onvoiceschanged = setBestVoice;
+    setBestVoice();
+}
+
 function triggerLevelUpCelebration() {
     playFanfareSound();
     const modal = document.getElementById('celebrationModal');
@@ -527,10 +550,20 @@ window.closeCelebrationModal = function() {
 window.speakText = function(text) {
     if (!('speechSynthesis' in window)) return;
     window.speechSynthesis.cancel();
+    
+    // Netegem els guionets per a que es llisca la paraula sencera de forma fluida
     const cleanSpeechText = text.replace(/-/g, '').toLowerCase();
     const utterance = new SpeechSynthesisUtterance(cleanSpeechText);
+    
     utterance.lang = 'ca-ES';
-    utterance.rate = 0.85;
+    if (preferredVoice) {
+        utterance.voice = preferredVoice;
+    }
+    
+    // Ajustem el to i la velocitat per llevar-li aspresa robòtica
+    utterance.rate = 0.9;
+    utterance.pitch = 1.15; // Un to lleugerament més alt i expressiu
+    
     window.speechSynthesis.speak(utterance);
 };
 
