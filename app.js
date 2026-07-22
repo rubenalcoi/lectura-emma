@@ -1100,7 +1100,10 @@ function processTypedChar(char) {
                 currentLevelNumber = Math.floor(totalWordsCompleted / 10) + 1;
                 setTimeout(() => triggerLevelUpCelebration(), 800);
             } else {
-                setTimeout(() => renderTypingGameStage(), 1200);
+                setTimeout(() => {
+                    renderTypingGameStage();
+                    loadNextGameTarget();
+                }, 1200);
             }
         } else {
             const nextBox = document.getElementById(`box-${typedChars.length}`);
